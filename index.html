@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Festival Frevo Sertão — 2ª Edição. Festival em Arcoverde. Regulamento, patrocinadores e memória da edição 2024."
+    />
+    <link rel="canonical" href="https://www.festivalfrevosertao2.com" />
+    <title>Festival Frevo Sertão — 2ª Edição | Arcoverde</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rye&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="umbrella-transition" id="umbrellaTransition" aria-hidden="true">
+      <div class="umbrella-transition__panel umbrella-transition__panel--left"></div>
+      <div class="umbrella-transition__panel umbrella-transition__panel--right"></div>
+    </div>
+
+    <div class="ambient-bg" aria-hidden="true">
+      <div class="ambient-bg__blob ambient-bg__blob--1"></div>
+      <div class="ambient-bg__blob ambient-bg__blob--2"></div>
+      <div class="ambient-bg__blob ambient-bg__blob--3"></div>
+      <div class="ambient-bg__grain"></div>
+    </div>
+
+    <header class="site-header" data-header>
+      <a class="site-header__brand" href="#hero" aria-label="Festival Frevo Sertão — ir ao início">
+        <img
+          class="site-header__logo"
+          src="assets/Festival Frevo Sertão 2026 -LOGO.png"
+          alt=""
+          width="220"
+          height="80"
+          decoding="async"
+        />
+      </a>
+      <nav class="site-header__nav" aria-label="Principal">
+        <a href="#festival">Festival</a>
+        <a href="#cocar">COCAR</a>
+        <a href="#documentos">Regulamento</a>
+        <a href="#midia-2024">2024</a>
+        <a href="#vencedoras">Vencedores</a>
+        <a href="#patrocinadores">Patrocinadores</a>
+        <a href="#lineup">Line-up</a>
+        <a href="#logistica">Info</a>
+      </nav>
+      <div class="site-header__player" data-slot="header-spotify-embed">
+        <iframe
+          data-testid="embed-iframe"
+          style="border-radius: 12px"
+          src="https://open.spotify.com/embed/album/15Ow7xiyJD1PnnAo2ZvwI2?utm_source=generator&amp;theme=0"
+          width="100%"
+          height="152"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          title="Álbum do Festival Frevo Sertão no Spotify"
+        ></iframe>
+      </div>
+    </header>
+
+    <!-- 1. Banner identidade + mensagens rotativas (textos em content.json) -->
+    <div class="banner-strip" id="bannerStrip" role="region" aria-label="Destaques do festival">
+      <div class="banner-strip__pattern" aria-hidden="true"></div>
+      <div class="banner-strip__inner">
+        <span class="banner-strip__edition" data-slot="edition-badge">2ª Edição</span>
+        <p class="banner-strip__msg" id="bannerMessage" aria-live="polite">Carregando…</p>
+        <span class="banner-strip__domain" aria-hidden="true">festivalfrevosertao.com</span>
+      </div>
+    </div>
+
+    <main class="site-main">
+      <section class="hero" id="hero">
+        <div class="hero__parallax" data-parallax="slow">
+          <svg class="decor decor--umbrella decor--umbrella-1" viewBox="0 0 200 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="umb1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1e3a8a" />
+                <stop offset="50%" stop-color="#dc2626" />
+                <stop offset="100%" stop-color="#f59e0b" />
+              </linearGradient>
+            </defs>
+            <path fill="url(#umb1)" d="M100 20 C40 20 10 80 10 120 C10 160 50 190 100 200 C150 190 190 160 190 120 C190 80 160 20 100 20 Z" opacity="0.92" />
+            <line x1="100" y1="200" x2="100" y2="210" stroke="#c2410c" stroke-width="6" stroke-linecap="round" />
+          </svg>
+          <svg class="decor decor--cactus decor--cactus-1" viewBox="0 0 120 200" aria-hidden="true">
+            <path fill="#166534" d="M60 200 L60 80 Q60 40 40 20 Q30 10 50 15 Q55 50 55 90 L55 200 Z" />
+            <path fill="#15803d" d="M60 120 Q90 100 95 70 Q98 50 85 45 Q75 55 70 85 L70 200 L60 200 Z" />
+            <ellipse cx="45" cy="18" rx="8" ry="6" fill="#22c55e" />
+          </svg>
+        </div>
+
+        <div class="hero__inner glass-panel glass-panel--hero">
+          <p class="hero__eyebrow">Arcoverde · Pernambuco</p>
+          <h1 class="hero__title">O Passo Que Ecoa no Sertão</h1>
+          <p class="hero__lead">
+            O <strong>Festival Frevo Fertão</strong> é onde a alegria e a cultura do nosso povo se encontrarão num só compasso!,
+          </p>
+          <a class="btn-cta" href="#documentos">
+            <span class="btn-cta__glow"></span>
+            <span class="btn-cta__label">Ver regulamento</span>
+          </a>
+        </div>
+
+        <div class="hero__parallax hero__parallax--front" data-parallax="fast">
+          <svg class="decor decor--umbrella decor--umbrella-2" viewBox="0 0 200 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="umb2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#b45309" />
+                <stop offset="100%" stop-color="#1e40af" />
+              </linearGradient>
+            </defs>
+            <path fill="url(#umb2)" d="M100 30 C45 30 15 85 15 125 C15 165 55 195 100 205 C145 195 185 165 185 125 C185 85 155 30 100 30 Z" opacity="0.88" />
+            <line x1="100" y1="205" x2="100" y2="215" stroke="#92400e" stroke-width="5" stroke-linecap="round" />
+          </svg>
+        </div>
+      </section>
+
+      <!-- 2. Texto sobre o festival -->
+      <section class="section festival" id="festival">
+        <div class="section__container">
+          <h2 class="section__title" data-reveal data-slot="festival-title">O Festival Frevo Sertão</h2>
+          <div class="glass-panel festival__panel" data-reveal>
+            <div data-slot="festival-body">
+              <p class="flow-text">Carregando conteúdo…</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Entidade realizadora (COCAR) -->
+      <section class="section cocar" id="cocar">
+        <div class="section__container">
+          <h2 class="section__title" data-reveal data-slot="cocar-title">A entidade realizadora</h2>
+          <div class="glass-panel cocar__panel" data-reveal>
+            <div data-slot="cocar-body">
+              <p class="flow-text">Carregando…</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Regulamento -->
+      <section class="section documentos" id="documentos">
+        <div class="section__container documentos__grid">
+          <article class="glass-panel documentos__card" data-reveal>
+            <h2 class="documentos__heading">Regulamento</h2>
+            <p class="documentos__intro" data-slot="regulamento-intro">Carregando…</p>
+            <a
+              class="btn-cta btn-cta--doc"
+              data-slot="regulamento-link"
+              href="assets/regulamento-frevo-sertao-2ed-v1.docx"
+              download="regulamento-frevo-sertao-2ed-v1.docx"
+            >
+              <span class="btn-cta__glow"></span>
+              <span class="btn-cta__label">Baixar regulamento (.docx)</span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Mídia: YouTube + Spotify -->
+      <section class="section midia" id="midia-2024">
+        <div class="section__container">
+          <h2 class="section__title" data-reveal>Memória 2024</h2>
+          <p class="section__subtitle" data-reveal>Finalíssima em vídeo e álbum no Spotify.</p>
+
+          <div class="midia__video-feature glass-panel" data-reveal>
+            <h3 class="midia__label" data-slot="video-title">Finalíssima 2024</h3>
+            <p class="midia__text" data-slot="video-intro"></p>
+            <div class="midia__video-wrap midia__video-wrap--medium" data-slot="youtube-embed">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/MwHnzKPfRvw?si=RpoaYqQhWMvcxH88" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p class="midia__video-footer">
+              <a class="midia__video-link" data-slot="video-link" href="#" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>
+            </p>
+          </div>
+
+          <div class="midia__spotify-block glass-panel" data-reveal>
+            <h3 class="midia__label">Álbum do Festival 2024</h3>
+            <div class="midia__embed" data-slot="spotify-embed">
+              <p class="midia__fallback">Carregando player…</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vencedores Concurso Musical (edição anterior) -->
+      <section class="section vencedoras vencedoras--hall" id="vencedoras">
+        <div class="section__container">
+          <h2 class="section__title" data-reveal data-slot="vencedoras-title">Vencedores da última edição</h2>
+          <p class="section__subtitle" data-reveal data-slot="vencedoras-intro"></p>
+          <div class="vencedoras__grid" data-slot="vencedoras-grid"></div>
+        </div>
+      </section>
+
+      <!-- Patrocinadores (faixa em loop) -->
+      <section class="section patrocinadores" id="patrocinadores">
+        <div class="section__container">
+          <h2 class="section__title" data-reveal data-slot="patrocinadores-title">Patrocinadores</h2>
+          <p class="section__subtitle" data-reveal data-slot="patrocinadores-intro"></p>
+          <div class="patrocinadores__marquee glass-panel" data-reveal aria-label="Patrocinadores">
+            <div class="patrocinadores__track" data-slot="patrocinadores-track">
+              <div class="patrocinadores__seq">
+                <img
+                  class="patrocinadores__img"
+                  src="assets/Patrocinadores.png"
+                  alt="Logos dos patrocinadores do Festival Frevo Sertão"
+                  width="1200"
+                  height="200"
+                  decoding="async"
+                  draggable="false"
+                />
+              </div>
+              <div class="patrocinadores__seq" aria-hidden="true">
+                <img
+                  class="patrocinadores__img"
+                  src="assets/Patrocinadores.png"
+                  alt=""
+                  width="1200"
+                  height="200"
+                  decoding="async"
+                  draggable="false"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section encontro" id="encontro">
+        <div class="section__container">
+          <h2 class="section__title" data-reveal>O Encontro de Mundos</h2>
+          <div class="encontro__grid">
+            <div class="glass-panel encontro__text" data-reveal>
+              <p class="flow-text">
+                No <strong>Frevo Sertão</strong>, a orquestra de metais não apenas toca — ela <em>corta o ar</em> como a
+                lâmina da primeira chuva após a seca. O pé bate no chão de barro com a mesma urgência com que o
+                passista gira no asfalto: velocidade, precisão, alegria contida que explode em cada volta.
+              </p>
+              <p class="flow-text">
+                Do outro lado, a <strong>resiliência do povo sertanejo</strong>: raiz que não pede licença para florescer
+                na pedra. Unimos o giro frenético do frevo à cadência do coco, ao couro do gibão e à palha que filtra o
+                sol — para que o Carnaval respire o mesmo oxigênio do setão.
+              </p>
+            </div>
+            <figure class="encontro__visual mask-organic" data-reveal>
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80"
+                alt="Paisagem dourada do sertão ao pôr do sol"
+                width="600"
+                height="750"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="encontro__caption">Sol, terra e céu — tríade que molda o ritmo.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section lineup" id="lineup">
+        <div class="section__container">
+          <h2 class="section__title" data-reveal>Line-up e Protagonistas</h2>
+          <p class="section__subtitle" data-reveal>Três frentes que sustentam a festa — convide o corpo antes do verso.</p>
+
+          <div class="lineup__cards">
+            <article class="lineup-card" data-reveal data-tilt>
+              <div class="lineup-card__shine"></div>
+              <div class="lineup-card__icon" aria-hidden="true">◈</div>
+              <h3 class="lineup-card__title">Mestres do Passo</h3>
+              <p class="lineup-card__text">
+                Passistas locais e convidados que ensinam o giro, o susto e o sorriso no meio do turbilhão — a escola
+                viva do frevo no chão de Arcoverde.
+              </p>
+            </article>
+
+            <article class="lineup-card" data-reveal data-tilt>
+              <div class="lineup-card__shine"></div>
+              <div class="lineup-card__icon" aria-hidden="true">♫</div>
+              <h3 class="lineup-card__title">Orquestras de Frevo</h3>
+              <p class="lineup-card__text">
+                O som dos metais rasgando o silêncio do Sertão — trompete, sax e bombo desenhando o mesmo horizonte que
+                o sol pinta ao cair.
+              </p>
+            </article>
+
+            <article class="lineup-card" data-reveal data-tilt>
+              <div class="lineup-card__shine"></div>
+              <div class="lineup-card__icon" aria-hidden="true">◎</div>
+              <h3 class="lineup-card__title">Samba de Coco de Arcoverde</h3>
+              <p class="lineup-card__text">
+                A tradição local como anfitriã: ponto de encontro entre o coco pernambucano e o convite ao ritmo
+                visitante — raiz e ponte no mesmo batuque.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section imersao" id="imersao">
+        <div class="section__container imersao__layout">
+          <div class="imersao__copy glass-panel" data-reveal>
+            <h2 class="section__title section__title--left">Imersão Cultural</h2>
+            <p>
+              Sombrinhas de frevo em camadas de vidro fosco, textura de <strong>couro de gibão</strong> e
+              <strong>palha do chapéu</strong> entrelaçadas em colagem contemporânea — cordel visual para um tempo que
+              dança offline.
+            </p>
+          </div>
+          <div class="imersao__collage" data-reveal>
+            <div class="imersao__piece imersao__piece--leather mask-organic mask-organic--sm">
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+                alt="Textura de couro envelhecido"
+                loading="lazy"
+                width="400"
+                height="500"
+              />
+            </div>
+            <div class="imersao__piece imersao__piece--straw mask-organic mask-organic--md">
+              <img
+                src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80"
+                alt="Palha e fibras naturais"
+                loading="lazy"
+                width="400"
+                height="400"
+              />
+            </div>
+            <svg class="imersao__umbrella-float" viewBox="0 0 200 220" aria-hidden="true">
+              <defs>
+                <linearGradient id="umbIm" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#1d4ed8" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+              </defs>
+              <path fill="url(#umbIm)" d="M100 15 C35 15 5 75 5 118 C5 158 48 192 100 205 C152 192 195 158 195 118 C195 75 165 15 100 15 Z" />
+              <line x1="100" y1="205" x2="100" y2="218" stroke="#713f12" stroke-width="5" stroke-linecap="round" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="section logistica" id="logistica">
+        <div class="section__container">
+          <h2 class="section__title" data-reveal>Informações Logísticas</h2>
+          <div class="logistica__grid">
+            <div class="glass-panel logistica__info" data-reveal>
+              <h3 class="logistica__heading">Datas e horários</h3>
+              <ul class="logistica__list">
+                <li><strong>15 e 16 de novembro de 2026</strong> — programação contínua das 16h à 23h.</li>
+                <li>Abertura dos portões: <strong>15h</strong> (sujeito à alteração).</li>
+              </ul>
+              <h3 class="logistica__heading">Locais em Arcoverde</h3>
+              <ul class="logistica__list">
+                <li><strong>Praça Sérgio Magalhães</strong> — palco principal e oficinas de passo.</li>
+                <li><strong>Centro Cultural</strong> — exposição e conversas com mestres.</li>
+                <li><strong>Parque Municipal</strong> — samba de coco e feira de saberes.</li>
+              </ul>
+            </div>
+            <div class="logistica__map" data-reveal>
+              <div class="map-stylized" role="img" aria-label="Mapa estilizado de Arcoverde com pontos do festival">
+                <div class="map-stylized__grid"></div>
+                <div class="map-stylized__river"></div>
+                <span class="map-stylized__pin" style="--x: 28%; --y: 42%" title="Praça Sérgio Magalhães"></span>
+                <span class="map-stylized__pin" style="--x: 52%; --y: 38%" title="Centro Cultural"></span>
+                <span class="map-stylized__pin" style="--x: 68%; --y: 55%" title="Parque Municipal"></span>
+                <span class="map-stylized__label map-stylized__label--1">Praça</span>
+                <span class="map-stylized__label map-stylized__label--2">Cultural</span>
+                <span class="map-stylized__label map-stylized__label--3">Parque</span>
+              </div>
+              <p class="map-stylized__note">Mapa ilustrativo — pontos dourados indicam hubs do festival.</p>
+            </div>
+          </div>
+          <div class="footer-cta glass-panel" data-reveal>
+            <p class="footer-cta__text">Pronto para o giro? Reserve seu lugar e traga o corpo.</p>
+            <a class="btn-cta btn-cta--secondary" href="#hero">
+              <span class="btn-cta__glow"></span>
+              <span class="btn-cta__label">Voltar ao topo</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Primeiro toque na tela (botão invisível) ativa o áudio; depois some e o site navega normal -->
+    <button type="button" id="themeMusicCapture" class="theme-music-capture" tabindex="0" aria-label="Ativar som do festival — toque uma vez em qualquer lugar"></button>
+    <div id="themeMusicAudioHost" class="theme-music-audio-host" aria-hidden="true"></div>
+
+    <div id="themeMusicControlBar" class="theme-music-control glass-panel" role="region" aria-label="Música temática do festival" hidden>
+      <p class="theme-music-control__credit" id="themeMusicCredit" data-slot="theme-music-credit"></p>
+      <button type="button" class="theme-music-control__btn" id="btnThemeMusicPlayPause" aria-pressed="true">
+        <span class="theme-music-control__icon" id="themeMusicPlayIcon" aria-hidden="true">⏸</span>
+        <span class="theme-music-control__label" id="themeMusicPlayLabel">Pausar</span>
+      </button>
+    </div>
+
+    <footer class="site-footer">
+      <p>
+        © <span id="footerYear">2026</span> Festival Frevo Sertão · Arcoverde, PE / Jeferson Nogueira Desenvolvedor ·
+        <a class="site-footer__link" data-slot="footer-site-url" href="https://www.festivalfrevosertao.com">festivalfrevosertao.com</a>
+      </p>
+     
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

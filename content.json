@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "siteName": "Festival Frevo Sertão",
+    "siteUrl": "https://www.festivalfrevosertao.com",
+    "edition": "2ª Edição",
+    "pageTitle": "Festival Frevo Sertão — 2ª Edição | Arcoverde"
+  },
+  "banner": {
+    "rotateSeconds": 6,
+    "messages": [
+      "2ª EDIÇÃO — FREVO SERTÃO",
+      "ARCOVERDE · PERNAMBUCO",
+      "CULTURA E TRADIÇÃO NO SERTÃO",
+      "O PASSO QUE ECOA NO SERTÃO"
+    ]
+  },
+  "festival": {
+    "title": "O Festival Frevo Sertão",
+    "paragraphs": [
+      "Será uma explosão de cores, movimentos e sons para encher o nosso coração de alegria e orgulho. ",
+      "A programação reúne apresentações com foco na qualidade artística, no acesso e na memória viva das tradições. O evento se consolida como espaço de visibilidade para grupos locais e convidados, fortalecendo a economia criativa e o turismo cultural da cidade."
+    ]
+  },
+  "cocar": {
+    "title": "COCAR",
+    "paragraphs": [
+      "O festival é realizado pelo <strong>COCAR</strong> (Coletivo Cultural de Arcoverde), entidade dedicada à promoção de atividades culturais, educativas e de fomento às expressões populares no município.",
+      "Entre as frentes de atuação estão projetos de circulação, formação de plateias e apoio a grupos e artistas, sempre em diálogo com a comunidade e as políticas públicas de cultura."
+    ]
+  },
+  "regulamento": {
+    "intro": "Regulamento oficial da 2ª edição em Word (.docx): categorias, prazos de inscrição, documentação e demais regras de participação.",
+    "linkLabel": "Baixar regulamento (.docx)",
+    "url": "assets/regulamento-frevo-sertao-2ed-v1.docx"
+  },
+  "frevalia": {
+    "title": "Frevaliá",
+    "composerCredit": "Frevaliá — composição e interpretação: Felipe Morais",
+    "audioSrc": "Frevaliá - Felipe Morais.mp3",
+    "loop": true,
+    "captureAriaLabel": "Ativar som do festival — toque uma vez em qualquer lugar da tela",
+    "pauseLabel": "Pausar música",
+    "playLabel": "Continuar música"
+  },
+  "spotify": {
+    "embedSrc": "https://open.spotify.com/embed/album/15Ow7xiyJD1PnnAo2ZvwI2?utm_source=generator&theme=0",
+    "headerEmbedHeight": "152",
+    "embedHeight": "352",
+    "title": "Álbum do Festival — edição 2024"
+  },
+  "video2024": {
+    "title": "Finalíssima do Festival Frevo Sertão 2024",
+    "intro": "Assista à transmissão da finalíssima no YouTube.",
+    "linkLabel": "Abrir no YouTube em nova aba",
+    "youtubeEmbedSrc": "https://www.youtube.com/embed/MwHnzKPfRvw?si=RpoaYqQhWMvcxH88",
+    "iframeTitle": "YouTube video player",
+    "youtubeUrl": "https://www.youtube.com/watch?v=MwHnzKPfRvw"
+  },
+  "vencedoras2024": {
+    "title": "Vencedores da última edição",
+    "intro": "Memória oficial da edição 2024: pódio do Concurso Musical e prêmios de interpretação.",
+    "concursoTitle": "Concurso Musical",
+    "specialAwardsTitle": "Prêmios de interpretação",
+    "podium": [
+      {
+        "place": "1° Lugar",
+        "work": "Frevaliá",
+        "artist": "Felipe Morais",
+        "city": "Arcoverde"
+      },
+      {
+        "place": "2° Lugar",
+        "work": "O Encontro de Gonzagão e Capiba no Carnaval de Arcoverde",
+        "artist": "Henrique Brandão",
+        "city": "Serra Talhada"
+      },
+      {
+        "place": "3° Lugar",
+        "work": "Frevo Sertanejo",
+        "artist": "Reginaldo Siqueira",
+        "city": "Sertânia"
+      }
+    ],
+    "specialAwards": [
+      {
+        "title": "Melhor Intérprete Cantor(a)",
+        "name": "Sílvia Regina",
+        "city": "Arcoverde"
+      },
+      {
+        "title": "Melhor Intérprete Instrumentista",
+        "name": "Orlandinho Melo",
+        "city": "Arcoverde"
+      }
+    ]
+  },
+  "patrocinadores": {
+    "title": "Patrocinadores",
+    "intro": "Quem apoia e fortalece o Festival Frevo Sertão.",
+    "imageSrc": "assets/Patrocinadores.png",
+    "imageAlt": "Logos dos patrocinadores do Festival Frevo Sertão",
+    "marqueeSeconds": 40
+  }
+}
