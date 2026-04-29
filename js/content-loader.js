@@ -1,6 +1,6 @@
 /**
  * Carrega `content.json` e preenche os slots da página.
- * Para atualizar textos, links e patrocinadores, edite apenas content.json na raiz do site.
+ * Textos e URLs editáveis ficam apenas em content.json na raiz do site.
  */
 
 const DEFAULT_CONTENT_URL = "./content.json";
@@ -28,9 +28,61 @@ function renderParagraphs(container, paragraphs) {
   container.innerHTML = paragraphs.map((p) => `<p class="flow-text">${p}</p>`).join("");
 }
 
+function renderNoticias(container, data) {
+  if (!container || !data) return;
+  const items = Array.isArray(data.items) ? data.items : [];
+  const emptyMsg = escapeHtml(data.emptyMessage || "Novidades em breve.");
+  if (items.length === 0) {
+    container.innerHTML = `<li class="noticias__item noticias__item--solo"><p class="noticias__placeholder">${emptyMsg}</p></li>`;
+    return;
+  }
+  container.innerHTML = items
+    .map((it) => {
+      const title = escapeHtml(it.title || "");
+      const date = escapeHtml(it.date || "");
+      const summaryRaw = it.summary != null ? String(it.summary).trim() : "";
+      const summary = summaryRaw
+        ? `<p class="noticias__summary">${escapeHtml(summaryRaw)}</p>`
+        : "";
+      const href = String(it.href || "").trim();
+      const titleInner =
+        href && /^https?:\/\//i.test(href)
+          ? `<a class="noticias__link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${title}<span class="noticias__link-hint" aria-hidden="true"> ↗</span></a>`
+          : `<span class="noticias__headline">${title}</span>`;
+      const dateEl = date ? `<span class="noticias__date">${date}</span>` : "";
+      return `<li class="noticias__item">
+      ${dateEl ? `<div class="noticias__meta">${dateEl}</div>` : ""}
+      <div class="noticias__body">
+        <h3 class="noticias__item-title">${titleInner}</h3>
+        ${summary}
+      </div>
+    </li>`;
+    })
+    .join("");
+}
+
+function renderNav(container, items) {
+  if (!container || !Array.isArray(items)) return;
+  container.replaceChildren(
+    ...items.map((item) => {
+      const a = document.createElement("a");
+      const href = item.href || "#";
+      a.href = href;
+      a.textContent = item.label || "";
+      if (/^https?:\/\//i.test(href)) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.classList.add("site-header__nav-link--external");
+      }
+      return a;
+    })
+  );
+}
+
 function renderVencedoras(container, data) {
   if (!container || !data) return;
   if (Array.isArray(data.podium) && data.podium.length > 0) {
+    const badgeYear = escapeHtml(data.badgeYear || "2024");
     const concurso = escapeHtml(data.concursoTitle || "Concurso Musical");
     const rankClass = (i) =>
       i === 0 ? "podium-card--gold" : i === 1 ? "podium-card--silver" : "podium-card--bronze";
@@ -60,7 +112,7 @@ function renderVencedoras(container, data) {
     container.innerHTML = `
   <div class="vencedoras__featured glass-panel" data-reveal>
     <header class="vencedoras__featured-head">
-      <span class="vencedoras__featured-badge" aria-hidden="true">2024</span>
+      <span class="vencedoras__featured-badge" aria-hidden="true">${badgeYear}</span>
       <h3 class="vencedoras__concurso-title">${concurso}</h3>
     </header>
     <div class="podium">${podiumHtml}</div>
@@ -163,6 +215,10 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
 
   const m = data.meta;
   if (m?.pageTitle) document.title = m.pageTitle;
+
+  const md = document.querySelector('meta[name="description"]');
+  if (md && m?.metaDescription != null) md.setAttribute("content", m.metaDescription);
+
   if (m?.siteUrl) {
     let link = document.querySelector('link[rel="canonical"]');
     if (!link) {
@@ -173,11 +229,83 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
     link.href = m.siteUrl;
   }
 
+  const headerCfg = data.header || {};
+  const brand = document.querySelector("[data-slot='header-brand']");
+  if (brand) {
+    brand.setAttribute("aria-label", headerCfg.brandAriaLabel || "");
+  }
+  const logoImg = document.querySelector("[data-slot='header-logo']");
+  if (logoImg && headerCfg.logoSrc) {
+    logoImg.src = headerCfg.logoSrc;
+    if (headerCfg.logoAlt != null) logoImg.alt = headerCfg.logoAlt;
+  }
+
+  const navEl = document.querySelector("[data-slot='site-nav']");
+  if (navEl) {
+    if (headerCfg.navAriaLabel) navEl.setAttribute("aria-label", headerCfg.navAriaLabel);
+    renderNav(navEl, data.nav);
+  }
+
+  const headerInstagram = document.querySelector("[data-slot='header-instagram']");
+  if (headerInstagram) {
+    const igUrl = String(
+      headerCfg.instagramUrl || data.footer?.instagramUrl || ""
+    ).trim();
+    if (igUrl) {
+      headerInstagram.href = igUrl;
+      headerInstagram.hidden = false;
+      headerInstagram.setAttribute(
+        "aria-label",
+        headerCfg.instagramAriaLabel || "Instagram — Festival Frevo Sertão"
+      );
+    } else {
+      headerInstagram.hidden = true;
+    }
+  }
+
+  const bannerStrip = document.getElementById("bannerStrip");
+  if (bannerStrip && data.banner?.stripAriaLabel) {
+    bannerStrip.setAttribute("aria-label", data.banner.stripAriaLabel);
+  }
+  const domainBadge = document.querySelector("[data-slot='banner-domain']");
+  if (domainBadge && data.banner?.domainBadge) setText(domainBadge, data.banner.domainBadge);
+
   const editionEl = document.querySelector("[data-slot='edition-badge']");
   if (editionEl && m?.edition) setText(editionEl, m.edition);
 
   const bannerMsg = document.getElementById("bannerMessage");
-  if (data.banner?.messages) initBannerRotation(data.banner.messages, data.banner.rotateSeconds, bannerMsg);
+  if (bannerMsg && data.banner?.messages) {
+    initBannerRotation(data.banner.messages, data.banner.rotateSeconds, bannerMsg);
+  }
+
+  const heroEyebrow = document.querySelector("[data-slot='hero-eyebrow']");
+  const heroTitle = document.querySelector("[data-slot='hero-title']");
+  const heroLead = document.querySelector("[data-slot='hero-lead']");
+  const heroCta = document.querySelector("[data-slot='hero-cta']");
+  const heroCtaLabel = document.querySelector("[data-slot='hero-cta-label']");
+  const h = data.hero || {};
+  if (heroEyebrow && h.eyebrow) setText(heroEyebrow, h.eyebrow);
+  if (heroTitle && h.title) setText(heroTitle, h.title);
+  if (heroLead && h.lead) setHtml(heroLead, h.lead);
+  if (heroCta && h.ctaHref) heroCta.setAttribute("href", h.ctaHref);
+  if (heroCtaLabel && h.ctaLabel) setText(heroCtaLabel, h.ctaLabel);
+
+  const notTitle = document.querySelector("[data-slot='noticias-title']");
+  const notIntro = document.querySelector("[data-slot='noticias-intro']");
+  const notList = document.querySelector("[data-slot='noticias-list']");
+  const n = data.noticias || {};
+  if (notTitle && n.title) setText(notTitle, n.title);
+  if (notIntro) {
+    const intro = n.intro != null ? String(n.intro).trim() : "";
+    if (intro) {
+      setText(notIntro, intro);
+      notIntro.hidden = false;
+    } else {
+      notIntro.textContent = "";
+      notIntro.hidden = true;
+    }
+  }
+  renderNoticias(notList, n);
 
   const festivalTitle = document.querySelector("[data-slot='festival-title']");
   if (festivalTitle && data.festival?.title) setText(festivalTitle, data.festival.title);
@@ -187,9 +315,13 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
   if (cocarTitle && data.cocar?.title) setText(cocarTitle, data.cocar.title);
   renderParagraphs(document.querySelector("[data-slot='cocar-body']"), data.cocar?.paragraphs);
 
+  const docHeading = document.querySelector("[data-slot='documentos-heading']");
+  if (docHeading && data.documentos?.cardHeading) setText(docHeading, data.documentos.cardHeading);
+
   const regIntro = document.querySelector("[data-slot='regulamento-intro']");
   if (regIntro && data.regulamento?.intro) setText(regIntro, data.regulamento.intro);
   const regLink = document.querySelector("[data-slot='regulamento-link']");
+  const regLabel = document.querySelector("[data-slot='regulamento-link-label']");
   if (regLink && data.regulamento) {
     const url = data.regulamento.url || "#";
     regLink.href = url;
@@ -208,17 +340,50 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
         regLink.removeAttribute("download");
       }
     }
-    setText(regLink, data.regulamento.linkLabel || "Regulamento");
+    const lbl = data.regulamento.linkLabel || "Regulamento";
+    if (regLabel) setText(regLabel, lbl);
   }
 
-  const spotifyTitle = data.spotify?.title || "Álbum do Festival Frevo Sertão no Spotify";
+  const inc = data.inscricoes || {};
+  const insTitle = document.querySelector("[data-slot='inscricoes-title']");
+  const insSub = document.querySelector("[data-slot='inscricoes-subtitle']");
+  const insCta = document.querySelector("[data-slot='inscricoes-cta-label']");
+  const insPending = document.querySelector("[data-slot='inscricoes-pending-message']");
+  if (insTitle && inc.title) setText(insTitle, inc.title);
+  if (insSub) {
+    const sub = inc.subtitle != null ? String(inc.subtitle).trim() : "";
+    if (sub) {
+      setText(insSub, sub);
+      insSub.hidden = false;
+    } else {
+      insSub.textContent = "";
+      insSub.hidden = true;
+    }
+  }
+  if (insCta && inc.ctaLabel) setText(insCta, inc.ctaLabel);
+  const heroInsLabel = document.querySelector("[data-slot='hero-inscricao-label']");
+  if (heroInsLabel && inc.ctaLabel) setText(heroInsLabel, inc.ctaLabel);
+  if (insPending && inc.pendingMessage) setText(insPending, inc.pendingMessage);
+
+  const ms = data.midiaSection || {};
+  const memTitle = document.querySelector("[data-slot='memoria-title']");
+  const memSub = document.querySelector("[data-slot='memoria-subtitle']");
+  const spotifyCardTitle = document.querySelector("[data-slot='midia-spotify-title']");
+  const spotifyFallback = document.querySelector("[data-slot='spotify-placeholder']");
+  if (memTitle && ms.title) setText(memTitle, ms.title);
+  if (memSub && ms.subtitle) setText(memSub, ms.subtitle);
+  if (spotifyCardTitle && ms.spotifyCardTitle) setText(spotifyCardTitle, ms.spotifyCardTitle);
+  if (spotifyFallback && ms.spotifyPlaceholder) setText(spotifyFallback, ms.spotifyPlaceholder);
+
+  const spotifyIframeTitle = data.spotify?.iframeTitle || data.spotify?.title || "Spotify";
+  const spotifyTitle = spotifyIframeTitle;
   const headerWrap = document.querySelector("[data-slot='header-spotify-embed']");
   const headerIframe = headerWrap?.querySelector("iframe");
   if (headerIframe && data.spotify?.embedSrc) {
     headerIframe.src = data.spotify.embedSrc;
-    headerIframe.title = spotifyTitle;
-    const h = data.spotify.headerEmbedHeight ?? "152";
-    headerIframe.height = String(h);
+    headerIframe.title = spotifyIframeTitle;
+    const he = data.spotify.headerEmbedHeight ?? "152";
+    headerIframe.height = String(he);
   }
   injectSpotify(
     data.spotify?.embedSrc,
@@ -250,6 +415,10 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
   if (patTitle && data.patrocinadores?.title) setText(patTitle, data.patrocinadores.title);
   const patIntro = document.querySelector("[data-slot='patrocinadores-intro']");
   if (patIntro && data.patrocinadores?.intro) setText(patIntro, data.patrocinadores.intro);
+  const patMarquee = document.querySelector("[data-slot='patrocinadores-marquee']");
+  if (patMarquee && data.patrocinadores?.marqueeAriaLabel) {
+    patMarquee.setAttribute("aria-label", data.patrocinadores.marqueeAriaLabel);
+  }
   const patTrack = document.querySelector("[data-slot='patrocinadores-track']");
   const patSrc = data.patrocinadores?.imageSrc || "assets/Patrocinadores.png";
   const patAlt = data.patrocinadores?.imageAlt || "";
@@ -262,9 +431,32 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
     img.alt = i === 0 ? patAlt : "";
   });
 
-  const fy = document.getElementById("footerYear");
-  if (fy) fy.textContent = String(new Date().getFullYear());
+  const encontroRoot = document.querySelector("[data-slot='encontro-section']");
+  if (encontroRoot && data.encontro) {
+    const enc = data.encontro;
+    const paras = Array.isArray(enc.paragraphs)
+      ? enc.paragraphs.map((p) => `<p class="flow-text">${p}</p>`).join("")
+      : "";
+    encontroRoot.innerHTML = `
+        <div class="section__container">
+          <h2 class="section__title" data-reveal>${escapeHtml(enc.title || "")}</h2>
+          <div class="encontro__grid">
+            <div class="glass-panel encontro__text" data-reveal>${paras}</div>
+            <figure class="encontro__visual mask-organic" data-reveal>
+              <img src="${escapeHtml(enc.figureImageSrc || "")}" alt="${escapeHtml(enc.figureImageAlt || "")}" width="600" height="750" loading="lazy" decoding="async" />
+              <figcaption class="encontro__caption">${escapeHtml(enc.figureCaption || "")}</figcaption>
+            </figure>
+          </div>
+        </div>`;
+  }
 
+  const footerBefore = document.querySelector("[data-slot='footer-before-year']");
+  const footerAfter = document.querySelector("[data-slot='footer-after-year']");
+  const fy = document.getElementById("footerYear");
+  const foot = data.footer || {};
+  if (footerBefore && foot.beforeYear != null) setText(footerBefore, foot.beforeYear);
+  if (footerAfter && foot.afterYear != null) setText(footerAfter, foot.afterYear);
+  if (fy) fy.textContent = String(new Date().getFullYear());
   const footerUrl = document.querySelector("[data-slot='footer-site-url']");
   if (footerUrl && m?.siteUrl) {
     footerUrl.href = m.siteUrl;

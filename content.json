@@ -3,10 +3,31 @@
     "siteName": "Festival Frevo Sertão",
     "siteUrl": "https://www.festivalfrevosertao.com",
     "edition": "2ª Edição",
-    "pageTitle": "Festival Frevo Sertão — 2ª Edição | Arcoverde"
+    "pageTitle": "Festival Frevo Sertão — 2ª Edição | Arcoverde",
+    "metaDescription": "Festival Frevo Sertão — 2ª Edição. Festival em Arcoverde. Regulamento, patrocinadores e memória da edição 2024."
   },
+  "header": {
+    "brandAriaLabel": "Festival Frevo Sertão — ir ao início",
+    "logoSrc": "assets/Festival Frevo Sertão 2026 -LOGO.png",
+    "logoAlt": "",
+    "navAriaLabel": "Principal",
+    "instagramUrl": "https://www.instagram.com/frevo_sertao?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    "instagramAriaLabel": "Instagram do Festival Frevo Sertão — @frevo_sertao"
+  },
+  "nav": [
+    { "href": "#festival", "label": "Festival" },
+    { "href": "#noticias-frevo", "label": "Notícias" },
+    { "href": "#cocar", "label": "COCAR" },
+    { "href": "#documentos", "label": "Regulamento" },
+    { "href": "#inscricoes", "label": "Inscrições" },
+    { "href": "#ultima-edicao-2024", "label": "Última edição — 2024" },
+    { "href": "#patrocinadores", "label": "Patrocinadores" }
+  ],
   "banner": {
     "rotateSeconds": 6,
+    "stripAriaLabel": "Destaques do festival",
+    "loadingMessage": "Carregando…",
+    "domainBadge": "festivalfrevosertao.com",
     "messages": [
       "2ª EDIÇÃO — FREVO SERTÃO",
       "ARCOVERDE · PERNAMBUCO",
@@ -14,24 +35,60 @@
       "O PASSO QUE ECOA NO SERTÃO"
     ]
   },
+  "hero": {
+    "eyebrow": "Arcoverde · Pernambuco",
+    "title": "Atenção Compositores e Compositoras de Pernambuco!",
+    "lead": "O <strong>Festival Frevo Sertão</strong> é uma grande oportunidade para você mostrar seu trabalho e concorrer a prêmios em dinheiro e ter sua música gravada.",
+    "ctaHref": "#documentos",
+    "ctaLabel": "Ver regulamento - 2026"
+  },
+  "noticias": {
+    "title": "Notícias do Festival Frevo Sertão",
+    "intro": "Este espaço será atualizado com novidades da edição.",
+    "emptyMessage": "Novidades em breve.",
+    "items": [
+      {
+        "date": "30/04",
+        "title": "Bem-vindo ao hub oficial da 2ª edição",
+        "summary": "Regulamento, inscrições e muito mais  — tudo reunido aqui.",
+        "href": ""
+      }
+    ]
+  },
   "festival": {
     "title": "O Festival Frevo Sertão",
     "paragraphs": [
-      "Será uma explosão de cores, movimentos e sons para encher o nosso coração de alegria e orgulho. ",
-      "A programação reúne apresentações com foco na qualidade artística, no acesso e na memória viva das tradições. O evento se consolida como espaço de visibilidade para grupos locais e convidados, fortalecendo a economia criativa e o turismo cultural da cidade."
+      "Certame musical que foca nas três categorias: Frevo de Rua, Frevo Canção e Frevo de Bloco, voltado para compositoras e compositores nascidos em Pernambuco e ou residentes no Estado há mais de um ano.",
+      "Haverá também escolha dos melhores intérpretes. A finalíssima ocorre no dia 26 de setembro de 2026, na Cidade de Arcoverde."
     ]
   },
   "cocar": {
     "title": "COCAR",
     "paragraphs": [
-      "O festival é realizado pelo <strong>COCAR</strong> (Coletivo Cultural de Arcoverde), entidade dedicada à promoção de atividades culturais, educativas e de fomento às expressões populares no município.",
-      "Entre as frentes de atuação estão projetos de circulação, formação de plateias e apoio a grupos e artistas, sempre em diálogo com a comunidade e as políticas públicas de cultura."
+      "O Festival Frevo Sertão é realizado pelo COCAR – Coletivo Cultural de Arcoverde, com incentivo do Funcultura – Fundo Pernambucano de Incentivo à Cultura e apoio do SESC. O COCAR é uma associação civil sem fins lucrativos que tem como objetivo promover, difundir e valorizar a cultura em suas múltiplas linguagens, fortalecendo a identidade cultural do Sertão pernambucano.",
+      "Desde sua criação, o Coletivo atua na organização de eventos literários, musicais e artísticos, além de desenvolver projetos de formação e incentivo à leitura, à produção cultural e ao protagonismo da cultura tradicional."
     ]
+  },
+  "documentos": {
+    "cardHeading": "Regulamento"
   },
   "regulamento": {
     "intro": "Regulamento oficial da 2ª edição em Word (.docx): categorias, prazos de inscrição, documentação e demais regras de participação.",
     "linkLabel": "Baixar regulamento (.docx)",
     "url": "assets/regulamento-frevo-sertao-2ed-v1.docx"
+  },
+  "inscricoes": {
+    "title": "Faça aqui sua inscrição",
+    "subtitle": "",
+    "ctaLabel": "Inscrever-se",
+    "pendingMessage": "Inscrições a partir de 15 de maio.",
+    "googleFormUrl": ""
+  },
+  "midiaSection": {
+    "title": "Memória 2024",
+    "subtitle": "Finalíssima em vídeo e álbum no Spotify.",
+    "spotifyCardTitle": "Álbum do Festival 2024",
+    "spotifyPlaceholder": "Carregando player…"
   },
   "frevalia": {
     "title": "Frevaliá",
@@ -40,13 +97,15 @@
     "loop": true,
     "captureAriaLabel": "Ativar som do festival — toque uma vez em qualquer lugar da tela",
     "pauseLabel": "Pausar música",
-    "playLabel": "Continuar música"
+    "playLabel": "Continuar música",
+    "controlRegionAriaLabel": "Música temática do festival"
   },
   "spotify": {
     "embedSrc": "https://open.spotify.com/embed/album/15Ow7xiyJD1PnnAo2ZvwI2?utm_source=generator&theme=0",
     "headerEmbedHeight": "152",
     "embedHeight": "352",
-    "title": "Álbum do Festival — edição 2024"
+    "title": "Álbum do Festival — edição 2024",
+    "iframeTitle": "Álbum do Festival Frevo Sertão no Spotify"
   },
   "video2024": {
     "title": "Finalíssima do Festival Frevo Sertão 2024",
@@ -61,6 +120,7 @@
     "intro": "Memória oficial da edição 2024: pódio do Concurso Musical e prêmios de interpretação.",
     "concursoTitle": "Concurso Musical",
     "specialAwardsTitle": "Prêmios de interpretação",
+    "badgeYear": "2024",
     "podium": [
       {
         "place": "1° Lugar",
@@ -97,8 +157,26 @@
   "patrocinadores": {
     "title": "Patrocinadores",
     "intro": "Quem apoia e fortalece o Festival Frevo Sertão.",
+    "marqueeAriaLabel": "Patrocinadores",
     "imageSrc": "assets/Patrocinadores.png",
     "imageAlt": "Logos dos patrocinadores do Festival Frevo Sertão",
     "marqueeSeconds": 40
+  },
+  "encontro": {
+    "title": "O Encontro de Mundos",
+    "paragraphs": [
+      "No <strong>Frevo Sertão</strong>, a orquestra de metais não apenas toca — ela <em>corta o ar</em> como a lâmina da primeira chuva após a seca. O pé bate no chão de barro com a mesma urgência com que o passista gira no asfalto: velocidade, precisão, alegria contida que explode em cada volta.",
+      "Do outro lado, a <strong>resiliência do povo sertanejo</strong>: raiz que não pede licença para florescer na pedra. Unimos o giro frenético do frevo à cadência do coco, ao couro do gibão e à palha que filtra o sol — para que o Carnaval respire o mesmo oxigênio do sertão."
+    ],
+    "figureImageSrc": "assets/Festival Frevo Sertão 2026 - Ícone.png",
+    "figureImageAlt": "",
+    "figureCaption": ""
+  },
+  "footer": {
+    "beforeYear": "© ",
+    "afterYear": " Festival Frevo Sertão · Arcoverde, PE / Jeferson Nogueira Desenvolvedor · "
+  },
+  "fallbacks": {
+    "contentLoadError": "FESTIVAL FREVO SERTÃO — 2ª EDIÇÃO (edite content.json)"
   }
 }

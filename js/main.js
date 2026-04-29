@@ -132,22 +132,32 @@ function initReveal() {
   });
 }
 
-function initLineupTilt() {
-  const cards = document.querySelectorAll("[data-tilt]");
-  if (!cards.length || prefersReducedMotion) return;
+function initInscricoes(cfg) {
+  const buttons = document.querySelectorAll(".btn-inscricao");
+  const dialog = document.getElementById("inscricoesDialog");
+  if (!buttons.length || !dialog) return;
 
-  cards.forEach((card) => {
-    card.addEventListener("pointermove", (e) => {
-      const r = card.getBoundingClientRect();
-      const x = ((e.clientX - r.left) / r.width) * 100;
-      const y = ((e.clientY - r.top) / r.height) * 100;
-      card.style.setProperty("--mx", `${x}%`);
-      card.style.setProperty("--my", `${y}%`);
-    });
-    card.addEventListener("pointerleave", () => {
-      card.style.removeProperty("--mx");
-      card.style.removeProperty("--my");
-    });
+  const url = String(cfg?.googleFormUrl || "").trim();
+
+  const onClick = () => {
+    if (url && /^https?:\/\//i.test(url)) {
+      window.open(url, "_blank", "noopener,noreferrer");
+      return;
+    }
+    if (typeof dialog.showModal === "function") {
+      dialog.showModal();
+    }
+  };
+
+  buttons.forEach((btn) => btn.addEventListener("click", onClick));
+
+  const close = () => {
+    if (typeof dialog.close === "function") dialog.close();
+  };
+
+  dialog.querySelector(".inscricoes-dialog__close")?.addEventListener("click", close);
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) close();
   });
 }
 
@@ -191,11 +201,14 @@ async function bootstrap() {
     composerCredit: "Frevaliá — composição e interpretação: Felipe Morais",
     audioSrc: "Frevaliá - Felipe Morais.mp3",
     loop: true,
+    captureAriaLabel: "Ativar som do festival — toque uma vez em qualquer lugar da tela",
     pauseLabel: "Pausar música",
     playLabel: "Continuar música",
+    controlRegionAriaLabel: "Música temática do festival",
   };
   initThemeMusic({ ...defaultFrevalia, ...(loaded?.frevalia || {}) });
 
+  initInscricoes(loaded?.inscricoes || {});
   initUmbrellaTransition();
   initHeroDecorEntrance();
 
@@ -206,7 +219,6 @@ async function bootstrap() {
     ScrollTrigger.refresh();
   }
 
-  initLineupTilt();
 }
 
 if (document.readyState === "loading") {

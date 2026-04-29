@@ -52,6 +52,10 @@ function bindPlayPauseUI(audio, cfg) {
 
   bar.hidden = false;
   bar.setAttribute("aria-hidden", "false");
+
+  if (cfg.controlRegionAriaLabel && bar) {
+    bar.setAttribute("aria-label", cfg.controlRegionAriaLabel);
+  }
 }
 
 export function initThemeMusic(cfg) {
