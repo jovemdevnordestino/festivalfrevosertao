@@ -284,9 +284,21 @@
     </div>
 
     <footer class="site-footer">
-      <p>
+      <p class="site-footer__main">
         <span data-slot="footer-before-year"></span><span id="footerYear"></span><span data-slot="footer-after-year"></span>
         <a class="site-footer__link" data-slot="footer-site-url" href="#"></a>
+      </p>
+      <p class="site-footer__dev" data-slot="footer-developer-wrap" hidden>
+        <span class="site-footer__dev-inner">
+          <span class="site-footer__dev-prefix" data-slot="footer-developer-prefix"></span>
+          <a
+            class="site-footer__dev-link"
+            data-slot="footer-developer-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+        </span>
       </p>
     </footer>
 

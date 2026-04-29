@@ -173,8 +173,11 @@
     "figureCaption": ""
   },
   "footer": {
+    "developerPrefix": "· Desenvolvedor do Site ",
+    "developerLinkLabel": "@jeferson_nogueira_dev",
+    "developerInstagramUrl": "https://www.instagram.com/jeferson_nogueira_dev/",
     "beforeYear": "© ",
-    "afterYear": " Festival Frevo Sertão · Arcoverde, PE / Jeferson Nogueira Desenvolvedor · "
+    "afterYear": " Festival Frevo Sertão · Arcoverde, PE · "
   },
   "fallbacks": {
     "contentLoadError": "FESTIVAL FREVO SERTÃO — 2ª EDIÇÃO (edite content.json)"

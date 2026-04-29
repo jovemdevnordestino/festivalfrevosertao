@@ -463,6 +463,27 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
     footerUrl.textContent = m.siteUrl.replace(/^https?:\/\//, "");
   }
 
+  const footerDevWrap = document.querySelector("[data-slot='footer-developer-wrap']");
+  const footerDevPrefix = document.querySelector("[data-slot='footer-developer-prefix']");
+  const footerDevLink = document.querySelector("[data-slot='footer-developer-link']");
+  const devUrl = String(foot.developerInstagramUrl || "").trim();
+  if (footerDevWrap && footerDevLink) {
+    if (devUrl) {
+      footerDevLink.href = devUrl;
+      setText(footerDevLink, foot.developerLinkLabel || "Instagram");
+      footerDevLink.setAttribute(
+        "aria-label",
+        foot.developerAriaLabel || "Instagram do desenvolvedor — Jeferson Nogueira"
+      );
+      if (footerDevPrefix && foot.developerPrefix != null) {
+        setText(footerDevPrefix, foot.developerPrefix);
+      }
+      footerDevWrap.hidden = false;
+    } else {
+      footerDevWrap.hidden = true;
+    }
+  }
+
   window.__FREVO_SITE_CONTENT__ = data;
   return data;
 }
