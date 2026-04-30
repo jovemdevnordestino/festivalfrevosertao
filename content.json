@@ -52,6 +52,13 @@
         "title": "Bem-vindo ao hub oficial da 2ª edição",
         "summary": "Regulamento, inscrições e muito mais  — tudo reunido aqui.",
         "href": ""
+      },
+      {
+        "date": "",
+        "title": "Instagram — Festival Frevo Sertão",
+        "summary": "Publicação oficial no perfil @frevo_sertao.",
+        "href": "https://www.instagram.com/frevo_sertao/",
+        "instagramPermalink": "https://www.instagram.com/p/DVnzEKsjS_F/"
       }
     ]
   },
@@ -73,9 +80,9 @@
     "cardHeading": "Regulamento"
   },
   "regulamento": {
-    "intro": "Regulamento oficial da 2ª edição em Word (.docx): categorias, prazos de inscrição, documentação e demais regras de participação.",
-    "linkLabel": "Baixar regulamento (.docx)",
-    "url": "assets/regulamento-frevo-sertao-2ed-v1.docx"
+    "intro": "Regulamento oficial da 2ª edição em PDF: categorias, prazos de inscrição, documentação e demais regras de participação.",
+    "linkLabel": "Baixar regulamento (.pdf)",
+    "url": "assets/regulamento-versao-2.pdf"
   },
   "inscricoes": {
     "title": "Faça aqui sua inscrição",
@@ -90,19 +97,9 @@
     "spotifyCardTitle": "Álbum do Festival 2024",
     "spotifyPlaceholder": "Carregando player…"
   },
-  "frevalia": {
-    "title": "Frevaliá",
-    "composerCredit": "Frevaliá — composição e interpretação: Felipe Morais",
-    "audioSrc": "Frevaliá - Felipe Morais.mp3",
-    "loop": true,
-    "captureAriaLabel": "Ativar som do festival — toque uma vez em qualquer lugar da tela",
-    "pauseLabel": "Pausar música",
-    "playLabel": "Continuar música",
-    "controlRegionAriaLabel": "Música temática do festival"
-  },
   "spotify": {
     "embedSrc": "https://open.spotify.com/embed/album/15Ow7xiyJD1PnnAo2ZvwI2?utm_source=generator&theme=0",
-    "headerEmbedHeight": "152",
+    "headerEmbedHeight": "80",
     "embedHeight": "352",
     "title": "Álbum do Festival — edição 2024",
     "iframeTitle": "Álbum do Festival Frevo Sertão no Spotify"
@@ -161,16 +158,6 @@
     "imageSrc": "assets/Patrocinadores.png",
     "imageAlt": "Logos dos patrocinadores do Festival Frevo Sertão",
     "marqueeSeconds": 40
-  },
-  "encontro": {
-    "title": "O Encontro de Mundos",
-    "paragraphs": [
-      "No <strong>Frevo Sertão</strong>, a orquestra de metais não apenas toca — ela <em>corta o ar</em> como a lâmina da primeira chuva após a seca. O pé bate no chão de barro com a mesma urgência com que o passista gira no asfalto: velocidade, precisão, alegria contida que explode em cada volta.",
-      "Do outro lado, a <strong>resiliência do povo sertanejo</strong>: raiz que não pede licença para florescer na pedra. Unimos o giro frenético do frevo à cadência do coco, ao couro do gibão e à palha que filtra o sol — para que o Carnaval respire o mesmo oxigênio do sertão."
-    ],
-    "figureImageSrc": "assets/Festival Frevo Sertão 2026 - Ícone.png",
-    "figureImageAlt": "",
-    "figureCaption": ""
   },
   "footer": {
     "developerPrefix": "· Desenvolvedor do Site ",

@@ -23,19 +23,78 @@ function setText(el, text) {
   el.textContent = text;
 }
 
+/** Player Spotify na barra superior: URL compacta + iframe mais baixo */
+function spotifyEmbedSrcForHeader(embedSrc) {
+  if (!embedSrc) return "";
+  try {
+    const u = new URL(embedSrc);
+    if (!u.searchParams.has("compact")) u.searchParams.set("compact", "true");
+    return u.href;
+  } catch {
+    return embedSrc.includes("compact=")
+      ? embedSrc
+      : `${embedSrc}${embedSrc.includes("?") ? "&" : "?"}compact=true`;
+  }
+}
+
+function normalizeInstagramPermalink(raw) {
+  const s = String(raw || "").trim();
+  if (!s) return "";
+  try {
+    const u = new URL(/^https?:\/\//i.test(s) ? s : `https://${s}`);
+    const host = u.hostname.replace(/^www\./i, "").toLowerCase();
+    if (host !== "instagram.com") return "";
+    u.search = "";
+    u.hash = "";
+    return u.href;
+  } catch {
+    return "";
+  }
+}
+
+function queueInstagramEmbeds() {
+  const processEmbeds = () => {
+    try {
+      const ig = window.instgrm?.Embeds;
+      if (!ig) return;
+      ig.process();
+      requestAnimationFrame(() => ig.process());
+    } catch (_) {
+      /* embed.js opcional */
+    }
+  };
+
+  if (window.instgrm?.Embeds) {
+    processEmbeds();
+    return;
+  }
+
+  let script = document.querySelector("script[data-instagram-embed-js]");
+  if (!script) {
+    script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.instagram.com/embed.js";
+    script.dataset.instagramEmbedJs = "1";
+    document.body.appendChild(script);
+  }
+  script.addEventListener("load", processEmbeds);
+}
+
 function renderParagraphs(container, paragraphs) {
   if (!container || !Array.isArray(paragraphs)) return;
   container.innerHTML = paragraphs.map((p) => `<p class="flow-text">${p}</p>`).join("");
 }
 
 function renderNoticias(container, data) {
-  if (!container || !data) return;
+  if (!container || !data) return false;
   const items = Array.isArray(data.items) ? data.items : [];
   const emptyMsg = escapeHtml(data.emptyMessage || "Novidades em breve.");
   if (items.length === 0) {
     container.innerHTML = `<li class="noticias__item noticias__item--solo"><p class="noticias__placeholder">${emptyMsg}</p></li>`;
-    return;
+    return false;
   }
+
+  let needsInstagram = false;
   container.innerHTML = items
     .map((it) => {
       const title = escapeHtml(it.title || "");
@@ -50,15 +109,40 @@ function renderNoticias(container, data) {
           ? `<a class="noticias__link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${title}<span class="noticias__link-hint" aria-hidden="true"> ↗</span></a>`
           : `<span class="noticias__headline">${title}</span>`;
       const dateEl = date ? `<span class="noticias__date">${date}</span>` : "";
-      return `<li class="noticias__item">
+
+      const rawEmbedHtml = typeof it.instagramEmbedHtml === "string" ? it.instagramEmbedHtml.trim() : "";
+      let igBlock = "";
+      let hasInstagram = false;
+
+      if (rawEmbedHtml) {
+        hasInstagram = true;
+        const cleaned = rawEmbedHtml.replace(/<script\b[\s\S]*?<\/script>/gi, "").trim();
+        igBlock = `<div class="noticias__instagram-wrap"><div class="noticias__instagram-scale">${cleaned}</div></div>`;
+      } else {
+        const igPermalink = normalizeInstagramPermalink(it.instagramPermalink || it.instagramEmbedUrl || "");
+        if (igPermalink) {
+          hasInstagram = true;
+          const captionAttr = it.instagramCaptioned === true ? ' data-instgrm-captioned=""' : "";
+          igBlock = `<div class="noticias__instagram-wrap"><div class="noticias__instagram-scale"><blockquote class="instagram-media"${captionAttr} data-instgrm-permalink="${escapeHtml(
+            igPermalink
+          )}" data-instgrm-version="14"></blockquote></div></div>`;
+        }
+      }
+
+      if (hasInstagram) needsInstagram = true;
+      const extraClass = hasInstagram ? " noticias__item--has-instagram" : "";
+      return `<li class="noticias__item${extraClass}">
       ${dateEl ? `<div class="noticias__meta">${dateEl}</div>` : ""}
       <div class="noticias__body">
         <h3 class="noticias__item-title">${titleInner}</h3>
         ${summary}
+        ${igBlock}
       </div>
     </li>`;
     })
     .join("");
+
+  return needsInstagram;
 }
 
 function renderNav(container, items) {
@@ -305,7 +389,8 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
       notIntro.hidden = true;
     }
   }
-  renderNoticias(notList, n);
+  const noticiasNeedsInstagram = renderNoticias(notList, n);
+  if (noticiasNeedsInstagram) queueInstagramEmbeds();
 
   const festivalTitle = document.querySelector("[data-slot='festival-title']");
   if (festivalTitle && data.festival?.title) setText(festivalTitle, data.festival.title);
@@ -380,9 +465,9 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
   const headerWrap = document.querySelector("[data-slot='header-spotify-embed']");
   const headerIframe = headerWrap?.querySelector("iframe");
   if (headerIframe && data.spotify?.embedSrc) {
-    headerIframe.src = data.spotify.embedSrc;
+    headerIframe.src = spotifyEmbedSrcForHeader(data.spotify.embedSrc);
     headerIframe.title = spotifyIframeTitle;
-    const he = data.spotify.headerEmbedHeight ?? "152";
+    const he = data.spotify.headerEmbedHeight ?? "80";
     headerIframe.height = String(he);
   }
   injectSpotify(
@@ -430,25 +515,6 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
     img.src = patSrc;
     img.alt = i === 0 ? patAlt : "";
   });
-
-  const encontroRoot = document.querySelector("[data-slot='encontro-section']");
-  if (encontroRoot && data.encontro) {
-    const enc = data.encontro;
-    const paras = Array.isArray(enc.paragraphs)
-      ? enc.paragraphs.map((p) => `<p class="flow-text">${p}</p>`).join("")
-      : "";
-    encontroRoot.innerHTML = `
-        <div class="section__container">
-          <h2 class="section__title" data-reveal>${escapeHtml(enc.title || "")}</h2>
-          <div class="encontro__grid">
-            <div class="glass-panel encontro__text" data-reveal>${paras}</div>
-            <figure class="encontro__visual mask-organic" data-reveal>
-              <img src="${escapeHtml(enc.figureImageSrc || "")}" alt="${escapeHtml(enc.figureImageAlt || "")}" width="600" height="750" loading="lazy" decoding="async" />
-              <figcaption class="encontro__caption">${escapeHtml(enc.figureCaption || "")}</figcaption>
-            </figure>
-          </div>
-        </div>`;
-  }
 
   const footerBefore = document.querySelector("[data-slot='footer-before-year']");
   const footerAfter = document.querySelector("[data-slot='footer-after-year']");

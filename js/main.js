@@ -2,7 +2,6 @@
  * Frevo Sertão — carrega content.json, depois GSAP (parallax, revelações, sombrinha), tilt.
  */
 import { loadSiteContent } from "./content-loader.js";
-import { initThemeMusic } from "./frevalia.js";
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -195,18 +194,6 @@ async function bootstrap() {
     const b = document.getElementById("bannerMessage");
     if (b) b.textContent = "FESTIVAL FREVO SERTÃO — 2ª EDIÇÃO (edite content.json)";
   }
-
-  const defaultFrevalia = {
-    title: "Frevaliá",
-    composerCredit: "Frevaliá — composição e interpretação: Felipe Morais",
-    audioSrc: "Frevaliá - Felipe Morais.mp3",
-    loop: true,
-    captureAriaLabel: "Ativar som do festival — toque uma vez em qualquer lugar da tela",
-    pauseLabel: "Pausar música",
-    playLabel: "Continuar música",
-    controlRegionAriaLabel: "Música temática do festival",
-  };
-  initThemeMusic({ ...defaultFrevalia, ...(loaded?.frevalia || {}) });
 
   initInscricoes(loaded?.inscricoes || {});
   initUmbrellaTransition();
