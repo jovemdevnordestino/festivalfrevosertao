@@ -86,10 +86,10 @@
   },
   "inscricoes": {
     "title": "Faça aqui sua inscrição",
-    "subtitle": "",
+    "subtitle": "Inscrições abertas — use o botão abaixo para acessar o formulário oficial.",
     "ctaLabel": "Inscrever-se",
-    "pendingMessage": "Inscrições a partir de 15 de maio.",
-    "googleFormUrl": ""
+    "pendingMessage": "O link do formulário será disponibilizado em breve por este botão.",
+    "googleFormUrl": "https://docs.google.com/forms/d/1rvYQYYxb0DYRhnSuWDsXlwHrr7ISD4omLGDfLq_fQUU/viewform"
   },
   "midiaSection": {
     "title": "Memória 2024",
