@@ -374,6 +374,18 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
   if (heroCta && h.ctaHref) heroCta.setAttribute("href", h.ctaHref);
   if (heroCtaLabel && h.ctaLabel) setText(heroCtaLabel, h.ctaLabel);
 
+  const homeBannerEyebrow = document.querySelector("[data-slot='home-banner-eyebrow']");
+  const homeBannerTitle = document.querySelector("[data-slot='home-banner-title']");
+  const homeBannerText = document.querySelector("[data-slot='home-banner-text']");
+  const homeBannerCta = document.querySelector("[data-slot='home-banner-cta']");
+  const homeBannerCtaLabel = document.querySelector("[data-slot='home-banner-cta-label']");
+  const hb = data.homeBanner || {};
+  if (homeBannerEyebrow && hb.eyebrow) setText(homeBannerEyebrow, hb.eyebrow);
+  if (homeBannerTitle && hb.title) setText(homeBannerTitle, hb.title);
+  if (homeBannerText && hb.text) setText(homeBannerText, hb.text);
+  if (homeBannerCta && hb.ctaHref) homeBannerCta.setAttribute("href", hb.ctaHref);
+  if (homeBannerCtaLabel && hb.ctaLabel) setText(homeBannerCtaLabel, hb.ctaLabel);
+
   const notTitle = document.querySelector("[data-slot='noticias-title']");
   const notIntro = document.querySelector("[data-slot='noticias-intro']");
   const notList = document.querySelector("[data-slot='noticias-list']");

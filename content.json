@@ -42,6 +42,13 @@
     "ctaHref": "#documentos",
     "ctaLabel": "Ver regulamento - 2026"
   },
+  "homeBanner": {
+    "eyebrow": "Destaque da 2ª edição",
+    "title": "Inscrições abertas para o Festival Frevo Sertão",
+    "text": "Acompanhe as categorias, prazos e participe da finalíssima em Arcoverde com o melhor do frevo e da cultura sertaneja.",
+    "ctaHref": "#inscricoes",
+    "ctaLabel": "Ir para inscrições"
+  },
   "noticias": {
     "title": "Notícias do Festival Frevo Sertão",
     "intro": "Este espaço será atualizado com novidades da edição.",
