@@ -86,14 +86,14 @@
   "documentos": {
     "cardHeading": "Regulamento e documentos",
     "analiseLabel": "Relação da análise documental",
-    "analiseUrl": "ANALISE_DOCUMENTAL-1_assinado.pdf",
+    "analiseUrl": "analise_documental_1_assinado.pdf",
     "recursoLabel": "Formulário de recurso",
-    "recursoUrl": "FORMULÁRIO RECURSO CONTRA A NÃO HABILITAÇÃO.docx"
+    "recursoUrl": "formulario_recurso_nao_habilitacao.docx"
   },
   "regulamento": {
     "intro": "Regulamento oficial da 2ª edição em PDF: categorias, prazos de inscrição, documentação e demais regras de participação.",
     "linkLabel": "Baixar regulamento (.pdf)",
-    "url": "REGULAMENTO VERSÃO 2.pdf"
+    "url": "regulamento_versao_2.pdf"
   },
   "inscricoes": {
     "title": "Inscrições encerradas",
