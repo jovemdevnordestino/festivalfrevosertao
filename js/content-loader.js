@@ -462,6 +462,7 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
   const insSub = document.querySelector("[data-slot='inscricoes-subtitle']");
   const insCta = document.querySelector("[data-slot='inscricoes-cta-label']");
   const insPending = document.querySelector("[data-slot='inscricoes-pending-message']");
+  const heroInsLink = document.querySelector("[data-slot='hero-inscricao-link']");
   if (insTitle && inc.title) setText(insTitle, inc.title);
   if (insSub) {
     const sub = inc.subtitle != null ? String(inc.subtitle).trim() : "";
@@ -475,12 +476,22 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
   }
   if (insCta && inc.ctaLabel) setText(insCta, inc.ctaLabel);
   const heroInsLabel = document.querySelector("[data-slot='hero-inscricao-label']");
-  if (heroInsLabel && inc.ctaLabel) setText(heroInsLabel, inc.ctaLabel);
+  if (heroInsLabel) {
+    const heroLabel = data.documentos?.analiseLabel || inc.ctaLabel || "Relação da análise documental";
+    setText(heroInsLabel, heroLabel);
+  }
+  if (heroInsLink && data.documentos?.analiseUrl) {
+    heroInsLink.href = data.documentos.analiseUrl;
+    heroInsLink.target = "_blank";
+    heroInsLink.rel = "noopener noreferrer";
+    heroInsLink.removeAttribute("download");
+  }
   if (insPending && inc.pendingMessage) setText(insPending, inc.pendingMessage);
 
   const inscricoesButtons = document.querySelectorAll(".btn-inscricao");
   inscricoesButtons.forEach((btn) => {
-    const isClosed = inc.isClosed === true;
+    const isDocumentLink = btn.classList.contains("btn-inscricao--documento");
+    const isClosed = inc.isClosed === true && !isDocumentLink;
     btn.disabled = isClosed;
     btn.classList.toggle("is-disabled", isClosed);
     if (isClosed) {

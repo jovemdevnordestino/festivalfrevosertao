@@ -139,9 +139,11 @@ function initInscricoes(cfg) {
   const isClosed = cfg?.isClosed === true;
 
   buttons.forEach((btn) => {
-    btn.disabled = isClosed;
-    btn.classList.toggle("is-disabled", isClosed);
-    if (isClosed) {
+    const isDocumentLink = btn.classList.contains("btn-inscricao--documento");
+    const shouldDisable = isClosed && !isDocumentLink;
+    btn.disabled = shouldDisable;
+    btn.classList.toggle("is-disabled", shouldDisable);
+    if (shouldDisable) {
       btn.setAttribute("aria-disabled", "true");
       btn.title = cfg?.closedMessage || "Inscrições encerradas";
     } else {
@@ -152,11 +154,13 @@ function initInscricoes(cfg) {
 
   if (!dialog) return;
 
-  if (isClosed) return;
+  const onClick = (event) => {
+    const target = event.currentTarget;
+    if (target.classList.contains("btn-inscricao--documento")) return;
 
-  const url = String(cfg?.googleFormUrl || "").trim();
+    if (isClosed) return;
 
-  const onClick = () => {
+    const url = String(cfg?.googleFormUrl || "").trim();
     if (url && /^https?:\/\//i.test(url)) {
       window.open(url, "_blank", "noopener,noreferrer");
       return;
@@ -166,7 +170,10 @@ function initInscricoes(cfg) {
     }
   };
 
-  buttons.forEach((btn) => btn.addEventListener("click", onClick));
+  buttons.forEach((btn) => {
+    if (btn.classList.contains("btn-inscricao--documento")) return;
+    btn.addEventListener("click", onClick);
+  });
 
   const close = () => {
     if (typeof dialog.close === "function") dialog.close();
