@@ -84,19 +84,25 @@
     ]
   },
   "documentos": {
-    "cardHeading": "Regulamento"
+    "cardHeading": "Regulamento e documentos",
+    "analiseLabel": "Relação da análise documental",
+    "analiseUrl": "ANALISE_DOCUMENTAL-1_assinado.pdf",
+    "recursoLabel": "Formulário de recurso",
+    "recursoUrl": "FORMULÁRIO RECURSO CONTRA A NÃO HABILITAÇÃO.docx"
   },
   "regulamento": {
     "intro": "Regulamento oficial da 2ª edição em PDF: categorias, prazos de inscrição, documentação e demais regras de participação.",
     "linkLabel": "Baixar regulamento (.pdf)",
-    "url": "assets/regulamento-versao-2.pdf"
+    "url": "REGULAMENTO VERSÃO 2.pdf"
   },
   "inscricoes": {
-    "title": "Faça aqui sua inscrição",
-    "subtitle": "Inscrições abertas — use o botão abaixo para acessar o formulário oficial.",
-    "ctaLabel": "Inscrever-se",
-    "pendingMessage": "O link do formulário será disponibilizado em breve por este botão.",
-    "googleFormUrl": "https://docs.google.com/forms/d/1rvYQYYxb0DYRhnSuWDsXlwHrr7ISD4omLGDfLq_fQUU/viewform"
+    "title": "Inscrições encerradas",
+    "subtitle": "As inscrições para a 2ª edição foram encerradas. Acompanhe os próximos comunicados e documentos oficiais do Festival.",
+    "ctaLabel": "Inscrições encerradas",
+    "pendingMessage": "As inscrições para a 2ª edição foram encerradas.",
+    "googleFormUrl": "",
+    "isClosed": true,
+    "closedMessage": "As inscrições foram encerradas."
   },
   "midiaSection": {
     "title": "Memória 2024",

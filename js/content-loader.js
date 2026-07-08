@@ -85,6 +85,28 @@ function renderParagraphs(container, paragraphs) {
   container.innerHTML = paragraphs.map((p) => `<p class="flow-text">${p}</p>`).join("");
 }
 
+function applyDocumentLink(linkEl, labelEl, cfg, fallbackLabel) {
+  if (!linkEl || !cfg) return;
+  const url = String(cfg.url || cfg.href || "#").trim();
+  linkEl.href = url || "#";
+  const isRemote = /^https?:\/\//i.test(url);
+  if (isRemote) {
+    linkEl.target = "_blank";
+    linkEl.rel = "noopener noreferrer";
+    linkEl.removeAttribute("download");
+  } else {
+    linkEl.removeAttribute("target");
+    linkEl.removeAttribute("rel");
+    const file = url.split("/").pop();
+    if (file && /\.(docx|pdf)$/i.test(file)) {
+      linkEl.setAttribute("download", file);
+    } else {
+      linkEl.removeAttribute("download");
+    }
+  }
+  if (labelEl) setText(labelEl, cfg.label || fallbackLabel || "Documento");
+}
+
 function renderNoticias(container, data) {
   if (!container || !data) return false;
   const items = Array.isArray(data.items) ? data.items : [];
@@ -420,25 +442,19 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
   const regLink = document.querySelector("[data-slot='regulamento-link']");
   const regLabel = document.querySelector("[data-slot='regulamento-link-label']");
   if (regLink && data.regulamento) {
-    const url = data.regulamento.url || "#";
-    regLink.href = url;
-    const isRemote = /^https?:\/\//i.test(url);
-    if (isRemote) {
-      regLink.target = "_blank";
-      regLink.rel = "noopener noreferrer";
-      regLink.removeAttribute("download");
-    } else {
-      regLink.removeAttribute("target");
-      regLink.removeAttribute("rel");
-      const file = url.split("/").pop();
-      if (file && /\.(docx|pdf)$/i.test(file)) {
-        regLink.setAttribute("download", file);
-      } else {
-        regLink.removeAttribute("download");
-      }
-    }
-    const lbl = data.regulamento.linkLabel || "Regulamento";
-    if (regLabel) setText(regLabel, lbl);
+    applyDocumentLink(regLink, regLabel, { url: data.regulamento.url, label: data.regulamento.linkLabel }, "Regulamento");
+  }
+
+  const analiseLink = document.querySelector("[data-slot='analise-link']");
+  const analiseLabel = document.querySelector("[data-slot='analise-link-label']");
+  if (analiseLink && data.documentos) {
+    applyDocumentLink(analiseLink, analiseLabel, { url: data.documentos.analiseUrl, label: data.documentos.analiseLabel }, "Relação da análise documental");
+  }
+
+  const recursoLink = document.querySelector("[data-slot='recurso-link']");
+  const recursoLabel = document.querySelector("[data-slot='recurso-link-label']");
+  if (recursoLink && data.documentos) {
+    applyDocumentLink(recursoLink, recursoLabel, { url: data.documentos.recursoUrl, label: data.documentos.recursoLabel }, "Formulário de recurso");
   }
 
   const inc = data.inscricoes || {};
@@ -461,6 +477,20 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
   const heroInsLabel = document.querySelector("[data-slot='hero-inscricao-label']");
   if (heroInsLabel && inc.ctaLabel) setText(heroInsLabel, inc.ctaLabel);
   if (insPending && inc.pendingMessage) setText(insPending, inc.pendingMessage);
+
+  const inscricoesButtons = document.querySelectorAll(".btn-inscricao");
+  inscricoesButtons.forEach((btn) => {
+    const isClosed = inc.isClosed === true;
+    btn.disabled = isClosed;
+    btn.classList.toggle("is-disabled", isClosed);
+    if (isClosed) {
+      btn.setAttribute("aria-disabled", "true");
+      btn.title = inc.closedMessage || "Inscrições encerradas";
+    } else {
+      btn.removeAttribute("aria-disabled");
+      btn.removeAttribute("title");
+    }
+  });
 
   const ms = data.midiaSection || {};
   const memTitle = document.querySelector("[data-slot='memoria-title']");

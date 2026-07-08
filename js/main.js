@@ -134,7 +134,25 @@ function initReveal() {
 function initInscricoes(cfg) {
   const buttons = document.querySelectorAll(".btn-inscricao");
   const dialog = document.getElementById("inscricoesDialog");
-  if (!buttons.length || !dialog) return;
+  if (!buttons.length) return;
+
+  const isClosed = cfg?.isClosed === true;
+
+  buttons.forEach((btn) => {
+    btn.disabled = isClosed;
+    btn.classList.toggle("is-disabled", isClosed);
+    if (isClosed) {
+      btn.setAttribute("aria-disabled", "true");
+      btn.title = cfg?.closedMessage || "Inscrições encerradas";
+    } else {
+      btn.removeAttribute("aria-disabled");
+      btn.removeAttribute("title");
+    }
+  });
+
+  if (!dialog) return;
+
+  if (isClosed) return;
 
   const url = String(cfg?.googleFormUrl || "").trim();
 
