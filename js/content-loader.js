@@ -454,7 +454,7 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
   const recursoLink = document.querySelector("[data-slot='recurso-link']");
   const recursoLabel = document.querySelector("[data-slot='recurso-link-label']");
   if (recursoLink && data.documentos) {
-    applyDocumentLink(recursoLink, recursoLabel, { url: data.documentos.recursoUrl, label: data.documentos.recursoLabel }, "Formulário de recurso");
+    applyDocumentLink(recursoLink, recursoLabel, { url: data.documentos.recursoUrl, label: data.documentos.recursoLabel }, "------------");
   }
 
   const inc = data.inscricoes || {};

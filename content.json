@@ -79,6 +79,12 @@
         "href": ""
       },
       {
+        "date": "12/07",
+        "title": "Divulgação da lista das canções habilitadas após o recurso",
+        "summary": "Após o julgamento dos recursos, foram habilitadas no Festival Frevo Sertão – 2ª Edição recebeu um total de 80 canções nas categorias Frevo de Rua, Frevo Canção e Frevo de Bloco, as quais seguem para a próxima etapa do processo seletivo. A lista completa dos habilitados após o recurso já está disponível no site oficial Festival Frevo Sertão — 2ª Edição | Arcoverde. A finalíssima do Festival acontecerá Arcoverde, no dia 26 de setembro, onde as três primeiras colocadas de cada categoria e os melhores intérpretes receberão prêmios em dinheiro, sendo que as 12 finalistas comporão o álbum do Festival Frevo Sertão – 2ª Edição. O evento é uma realização do COCAR – Coletivo Cultural de Arcoverde, com incentivo do Funcultura – Fundo Pernambucano de Incentivo à Cultura, e conta com o apoio do SESC. Consolidado como um dos principais espaços de valorização do frevo no Brasil, o festival reafirma a força da cultura pernambucana e abre caminho para novos talentos e criações musicais.",
+        "href": ""
+      },
+      {
         "date": "",
         "title": "Instagram — Festival Frevo Sertão",
         "summary": "Publicação oficial no perfil @frevo_sertao.",
@@ -103,10 +109,10 @@
   },
   "documentos": {
     "cardHeading": "Regulamento e documentos",
-    "analiseLabel": "Resultado da análise documental",
-    "analiseUrl": "analise_documental_1_assinado.pdf",
-    "recursoLabel": "Formulário de recurso",
-    "recursoUrl": "formulario_recurso_nao_habilitacao.docx"
+    "analiseLabel": "Canções habilitadas após recurso",
+    "analiseUrl": "RELACAO_DAS_CANCOES_HABILITADAS_APOS_RECURSO_assinado.pdf",
+    "recursoLabel": "",
+    "recursoUrl": ""
   },
   "regulamento": {
     "intro": "Regulamento oficial da 2ª edição em PDF: categorias, prazos de inscrição, documentação e demais regras de participação.",
