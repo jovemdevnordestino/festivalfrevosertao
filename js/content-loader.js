@@ -457,6 +457,17 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
     applyDocumentLink(recursoLink, recursoLabel, { url: data.documentos.recursoUrl, label: data.documentos.recursoLabel }, "Portaria de Composição da Comissão de Seleção");
   }
 
+  const comunicadoLink = document.querySelector("[data-slot='comunicado-link']");
+  const comunicadoLabel = document.querySelector("[data-slot='comunicado-link-label']");
+  if (comunicadoLink && data.documentos) {
+    applyDocumentLink(
+      comunicadoLink,
+      comunicadoLabel,
+      { url: data.documentos.comunicadoUrl, label: data.documentos.comunicadoLabel },
+      "Comunicado de músicas classificadas"
+    );
+  }
+
   const inc = data.inscricoes || {};
   const insTitle = document.querySelector("[data-slot='inscricoes-title']");
   const insSub = document.querySelector("[data-slot='inscricoes-subtitle']");

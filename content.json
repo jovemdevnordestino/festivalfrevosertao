@@ -91,6 +91,12 @@
         "href": ""
       },
       {
+        "date": "10/08/2026",
+        "title": "Lista das canções selecionadas publicada",
+        "summary": "Foi publicada a lista das canções selecionadas: 12 no total, com 4 músicas de cada categoria.",
+        "href": ""
+      },
+      {
         "date": "",
         "title": "Instagram — Festival Frevo Sertão",
         "summary": "Publicação oficial no perfil @frevo_sertao.",
@@ -115,10 +121,12 @@
   },
   "documentos": {
     "cardHeading": "Regulamento e documentos",
-    "analiseLabel": "Canções habilitadas após recurso",
-    "analiseUrl": "RELACAO_DAS_CANCOES_HABILITADAS_APOS_RECURSO_assinado.pdf",
+    "analiseLabel": "MÚSICAS CLASSIFICADAS",
+    "analiseUrl": "COMUNICADO MÚSICAS CLASSIFICADAS.doc",
     "recursoLabel": "Portaria de Composição da Comissão de Seleção",
-    "recursoUrl": "PORTARIA_COMISSAO_DE_SELECAO_assinado.pdf"
+    "recursoUrl": "PORTARIA_COMISSAO_DE_SELECAO_assinado.pdf",
+    "comunicadoLabel": "Comunicado músicas classificadas (.doc)",
+    "comunicadoUrl": "COMUNICADO MÚSICAS CLASSIFICADAS.doc"
   },
   "regulamento": {
     "intro": "Regulamento oficial da 2ª edição em PDF: categorias, prazos de inscrição, documentação e demais regras de participação.",
