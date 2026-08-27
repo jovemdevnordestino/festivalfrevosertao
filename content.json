@@ -18,6 +18,7 @@
     { "href": "#festival", "label": "Festival" },
     { "href": "#noticias-frevo", "label": "Notícias" },
     { "href": "#cocar", "label": "COCAR" },
+    { "href": "#homenageados", "label": "Homenageados" },
     { "href": "#documentos", "label": "Regulamento" },
     { "href": "#inscricoes", "label": "Inscrições" },
     { "href": "#ultima-edicao-2024", "label": "Última edição — 2024" },
@@ -117,6 +118,24 @@
     "paragraphs": [
       "O Festival Frevo Sertão é realizado pelo COCAR – Coletivo Cultural de Arcoverde, com incentivo do Funcultura – Fundo Pernambucano de Incentivo à Cultura e apoio do SESC. O COCAR é uma associação civil sem fins lucrativos que tem como objetivo promover, difundir e valorizar a cultura em suas múltiplas linguagens, fortalecendo a identidade cultural do Sertão pernambucano.",
       "Desde sua criação, o Coletivo atua na organização de eventos literários, musicais e artísticos, além de desenvolver projetos de formação e incentivo à leitura, à produção cultural e ao protagonismo da cultura tradicional."
+    ]
+  },
+  "homenageados": {
+    "title": "OS HOMENAGEADOS",
+    "intro": "Duas presenças que fazem parte da história do frevo e da cultura pernambucana.",
+    "items": [
+      {
+        "name": "Maestro Marco Cézar",
+        "image": "Maestro Marco Cézar.png",
+        "imageAlt": "Foto do homenageado 1",
+        "text": "  Natural de Pesqueira (PE), Marco Cézar de Oliveira Brito é um dos mais respeitados nomes da música instrumental brasileira. Professor, bandolinista, arranjador e diretor musical, construiu uma carreira dedicada à valorização da cultura pernambucana, transitando com maestria entre o frevo, o choro e outras expressões da música popular. Com formação em Música e Geografia pela UFPE e Mestrado em Música pela UFRN, Marco Cézar atuou por 37 anos no Conservatório Pernambucano de Música, onde foi pioneiro na introdução do ensino de música popular. É também membro da Academia Pernambucana de Música e professor do IFPE e das Faculdades AESO-Barros Melo, formando gerações de instrumen stas. À frente de projetos como o Coral Edgard Moraes e a Roda de Frevo de Bloco, o maestro tem papel decisivo na preservação e renovação do frevo de bloco, mantendo viva a tradição dos carnavais pernambucanos. Seu trabalho une rigor técnico e sensibilidade ar s ca, aproximando o frevo das novas gerações. Reconhecido como referência do choro nordes no, Marco Cézarr também é pesquisador e colecionador de um dos maiores acervos de par turas e gravações do gênero em Pernambuco. Ao ser homenageado na 2ª edição do Fes val Frevo Sertão, o maestro representa o elo entre tradição e modernidade, reafirmando o frevo e o choro como expressões universais da iden dade pernambucana. "
+      },
+      {
+        "name": "Maestro Frascisquinho Araujo",
+        "image": "Maestro frascisquinho Araujo.png",
+        "imageAlt": "Foto do homenageado ",
+        "text": "Maestro Francisquinho Araújo Nascido em 16 de junho de 1924, em Sertânia, Francisco Dias Araújo — o eterno Francisquinho — foi um músico, compositor, arranjador e educador que marcou gerações. Sua trajetória é um retrato da força cria va do interior pernambucano, onde o frevo encontrou novas cores e sotaques. Desde jovem, Francisquinho demonstrou genialidade musical. Estudou com o Mestre Ulisses Lima e, ao lado dos irmãos Demétrio e Ziro, fundou a lendária Orquestra Marajoara, que se tornaria referência na difusão do frevo e da música popular brasileira. A Marajoara foi o coração pulsante dos carnavais sertanienses, levando o ritmo contagiante do frevo às ruas e palcos do interior. Entre suas composições mais conhecidas estão “Batalha de Confetes”, incluída no álbum Os 20 Melhores Frevos do Século, além de “Aquarela do Sertão”, “Garota Sertaniense”, “Carnaval de Sertânia”, “Deixa o Bloco Passar” e “Hugo no Frevo”. Sua obra revela um compositor múl plo, capaz de transitar entre frevos, boleros, baiões e tangos, sempre com sensibilidade e iden dade regional. Francisquinho foi também um grande formador de músicos. Como professor de canto orfeônico e maestro, inspirou gerações que perpetuam sua arte. Sua influência ultrapassou as fronteiras de Sertânia, chegando às rádios e orquestras de Pernambuco e da Paraíba, consolidando-o como um dos pilares do frevo no interior. O legado de Francisquinho é celebrado não apenas pela sua produção musical, mas pela sua capacidade de unir tradição e inovação, transformando o frevo em expressão viva da cultura no Sertão do Moxotó. O Maestro faleceu em 27 de julho de 1990, na cidade Sertânia, aos 66 anos de idade. Em 2026, o Fes val Frevo Sertão o homenageia ao lado do Maestro Marco Cézar, reconhecendo sua contribuição inesmável para o gênero e para a formação de músicos pernambucanos. Francisquinho Araújo é, sem dúvida, um dos grandes responsáveis por fazer o frevo ecoar do Recife ao Sertão, reafirmando que a alegria das ruas é, sempre, a alegria do povo. "
+      }
     ]
   },
   "documentos": {

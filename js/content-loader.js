@@ -251,6 +251,27 @@ function renderVencedoras(container, data) {
     .join("");
 }
 
+function renderHomenageados(container, data) {
+  if (!container || !data || !Array.isArray(data.items)) return;
+  container.innerHTML = data.items
+    .slice(0, 2)
+    .map(
+      (item) => `
+    <article class="homenageado-card glass-panel" data-reveal>
+      <div class="homenageado-card__media">
+        <img src="${escapeHtml(item.image || "")}" alt="${escapeHtml(item.imageAlt || item.name || "")}" loading="lazy" width="640" height="480" onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
+        <span class="homenageado-card__media-fallback" hidden>Foto em breve</span>
+      </div>
+      <div class="homenageado-card__body">
+        <p class="homenageado-card__eyebrow">Homenageado</p>
+        <h3 class="homenageado-card__name">${escapeHtml(item.name || "")}</h3>
+        <p class="homenageado-card__text">${escapeHtml(item.text || "")}</p>
+      </div>
+    </article>`
+    )
+    .join("");
+}
+
 function initBannerRotation(messages, rotateSeconds, el) {
   if (!el || !Array.isArray(messages) || messages.length === 0) return;
   let i = 0;
@@ -433,6 +454,13 @@ export async function loadSiteContent(url = DEFAULT_CONTENT_URL) {
   const cocarTitle = document.querySelector("[data-slot='cocar-title']");
   if (cocarTitle && data.cocar?.title) setText(cocarTitle, data.cocar.title);
   renderParagraphs(document.querySelector("[data-slot='cocar-body']"), data.cocar?.paragraphs);
+
+  const homenageadosTitle = document.querySelector("[data-slot='homenageados-title']");
+  const homenageadosIntro = document.querySelector("[data-slot='homenageados-intro']");
+  const homenageados = data.homenageados || {};
+  if (homenageadosTitle && homenageados.title) setText(homenageadosTitle, homenageados.title);
+  if (homenageadosIntro && homenageados.intro) setText(homenageadosIntro, homenageados.intro);
+  renderHomenageados(document.querySelector("[data-slot='homenageados-grid']"), homenageados);
 
   const docHeading = document.querySelector("[data-slot='documentos-heading']");
   if (docHeading && data.documentos?.cardHeading) setText(docHeading, data.documentos.cardHeading);
