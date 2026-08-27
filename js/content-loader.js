@@ -257,7 +257,7 @@ function renderHomenageados(container, data) {
     .slice(0, 2)
     .map(
       (item) => `
-    <article class="homenageado-card glass-panel" data-reveal>
+    <article class="homenageado-card glass-panel">
       <div class="homenageado-card__media">
         <img src="${escapeHtml(item.image || "")}" alt="${escapeHtml(item.imageAlt || item.name || "")}" loading="lazy" width="640" height="480" onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
         <span class="homenageado-card__media-fallback" hidden>Foto em breve</span>
