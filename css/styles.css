@@ -999,7 +999,210 @@ button.btn-cta {
     height: min(72vw, 320px);
   }
 }
+/* =========================================================
+   RELEASES MÚSICOS
+   ========================================================= */
 
+.releases-musicos {
+  position: relative;
+  padding-top: clamp(3rem, 7vw, 5rem);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.releases-musicos__panel {
+  position: relative;
+  display: block;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(30, 64, 175, 0.62) 0%,
+      rgba(15, 23, 42, 0.78) 42%,
+      rgba(194, 65, 12, 0.48) 100%
+    );
+
+  border: 1px solid rgba(251, 191, 36, 0.38);
+
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.08),
+    0 28px 80px rgba(15, 23, 42, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+
+  transition:
+    transform 0.4s var(--ease-elastic),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* brilho decorativo */
+.releases-musicos__panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(251, 191, 36, 0.28),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(30, 64, 175, 0.35),
+      transparent 32%
+    );
+
+  opacity: 0.9;
+}
+
+/* faixa colorida superior */
+.releases-musicos__panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 4px;
+
+  border-radius: 0 0 999px 999px;
+
+  background: linear-gradient(
+    90deg,
+    var(--cobalt),
+    var(--amber-glow),
+    var(--terracotta)
+  );
+
+  box-shadow:
+    0 0 24px rgba(251, 191, 36, 0.5);
+}
+
+.releases-musicos__panel:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(251, 191, 36, 0.72);
+
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.2),
+    0 35px 100px rgba(15, 23, 42, 0.7),
+    0 0 55px rgba(245, 158, 11, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.releases-musicos__panel:focus-visible {
+  outline: 3px solid var(--amber-glow);
+  outline-offset: 5px;
+}
+
+.releases-musicos__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.releases-musicos__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.9rem;
+
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: var(--ink);
+
+  background: linear-gradient(
+    135deg,
+    var(--amber-glow),
+    var(--amber-sun)
+  );
+
+  box-shadow:
+    0 8px 28px rgba(245, 158, 11, 0.35);
+}
+
+.releases-musicos__title {
+  margin: 0 0 0.85rem;
+
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.1;
+
+  color: #fff;
+
+  text-shadow:
+    0 3px 30px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(251, 191, 36, 0.12);
+}
+
+.releases-musicos__text {
+  max-width: 55ch;
+  margin: 0 auto 1.75rem;
+
+  color: #cbd5e1;
+  font-size: clamp(0.92rem, 2vw, 1.05rem);
+  line-height: 1.65;
+}
+
+.releases-musicos__button {
+  min-width: min(100%, 250px);
+}
+
+.releases-musicos__panel:hover .releases-musicos__button {
+  box-shadow:
+    0 0 0 2px rgba(251, 191, 36, 0.8),
+    0 0 60px rgba(251, 191, 36, 0.55);
+}
+
+/* Celular */
+@media (max-width: 640px) {
+  .releases-musicos {
+    padding-inline: 1rem;
+  }
+
+  .releases-musicos__panel {
+    padding: 2rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .releases-musicos__title {
+    font-size: clamp(1.65rem, 9vw, 2.3rem);
+  }
+
+  .releases-musicos__text {
+    font-size: 0.92rem;
+  }
+
+  .releases-musicos__button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .releases-musicos__panel {
+    transition: none;
+  }
+
+  .releases-musicos__panel:hover {
+    transform: none;
+  }
+}
 .documentos__grid {
   display: grid;
   gap: 1.5rem;

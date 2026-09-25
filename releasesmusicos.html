@@ -1,0 +1,511 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Rye&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+  rel="stylesheet"
+/>
+
+<style>
+  /* Frevo Sertão — design tokens + glassmorphism + cordel contemporâneo */
+  :root {
+    --amber-sun: #f59e0b;
+    --amber-glow: #fbbf24;
+    --terracotta: #c2410c;
+    --sienna-deep: #7c2d12;
+    --cobalt: #1e40af;
+    --cobalt-deep: #1e3a8a;
+    --ink: #0f172a;
+    --ink-soft: #1e293b;
+    --mist: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-highlight: rgba(255, 255, 255, 0.35);
+    --shadow-deep: 0 25px 80px rgba(15, 23, 42, 0.45);
+    --font-display: "Rye", Georgia, serif;
+    --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+    --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+    line-height: 1.65;
+    color: #e2e8f0;
+    background: var(--ink);
+    overflow-x: hidden;
+  }
+
+  .ambient-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-color: var(--ink);
+    background-image: linear-gradient(
+        165deg,
+        rgba(15, 23, 42, 0.78) 0%,
+        rgba(15, 23, 42, 0.55) 40%,
+        rgba(30, 58, 95, 0.45) 70%,
+        rgba(15, 23, 42, 0.82) 100%
+      ),
+      url("fundo%20site%20inicio.png");
+    background-size: cover, cover;
+    background-position: center center, center center;
+    background-repeat: no-repeat, no-repeat;
+  }
+
+  .ambient-bg__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.55;
+    mix-blend-mode: screen;
+  }
+
+  .ambient-bg__blob--1 {
+    width: min(90vw, 520px);
+    height: min(90vw, 520px);
+    top: -10%;
+    left: -15%;
+    background: radial-gradient(circle, #f59e0b 0%, transparent 70%);
+  }
+
+  .ambient-bg__blob--2 {
+    width: min(80vw, 480px);
+    height: min(80vw, 480px);
+    bottom: 5%;
+    right: -10%;
+    background: radial-gradient(circle, #1d4ed8 0%, #dc2626 50%, transparent 70%);
+  }
+
+  .ambient-bg__blob--3 {
+    width: min(70vw, 400px);
+    height: min(70vw, 400px);
+    top: 40%;
+    right: 20%;
+    background: radial-gradient(circle, #ea580c 0%, transparent 65%);
+  }
+
+  .ambient-bg__grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* Header */
+  .site-header {
+    position: relative;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem clamp(1rem, 4vw, 2rem);
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .site-header__brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .site-header__nav {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .site-header__nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.25s ease;
+  }
+
+  .site-header__nav a:hover {
+    color: var(--amber-glow);
+  }
+
+  /* Banner Strip */
+  .banner-strip {
+    position: relative;
+    z-index: 40;
+    padding: 0.65rem clamp(1rem, 4vw, 2rem);
+    background: linear-gradient(
+      90deg,
+      rgba(30, 58, 138, 0.55) 0%,
+      rgba(194, 65, 12, 0.45) 45%,
+      rgba(245, 158, 11, 0.4) 100%
+    );
+    border-bottom: 1px solid var(--glass-border);
+    text-align: center;
+  }
+
+  .banner-strip__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--amber-glow);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Glass Panel */
+  .glass-panel {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-deep), inset 0 1px 0 var(--glass-highlight);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Main Content */
+  .site-main {
+    padding: clamp(3rem, 6vw, 6rem) 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .releases-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .releases-header__eyebrow {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: linear-gradient(135deg, var(--amber-glow), var(--amber-sun));
+    box-shadow: 0 8px 28px rgba(245, 158, 11, 0.35);
+  }
+
+  .releases-header__title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    color: #fff;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+  }
+
+  .releases-header__lead {
+    color: #cbd5e1;
+    max-width: 55ch;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  /* Grid of PDFs */
+  .releases-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .releases-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .release-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s var(--ease-elastic), box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+
+  .release-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(251, 191, 36, 0.6);
+    box-shadow: 0 28px 70px rgba(15, 23, 42, 0.6), 0 0 40px rgba(245, 158, 11, 0.15);
+  }
+
+  .release-card__badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(251, 191, 36, 0.15);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    color: var(--amber-glow);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .release-card__content {
+    margin-bottom: 1.5rem;
+  }
+
+  .release-card__category {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber-glow);
+    margin: 0 0 0.5rem;
+  }
+
+  .release-card__title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: #fff;
+    margin: 0 0 0.75rem;
+    line-height: 1.3;
+  }
+
+  .release-card__desc {
+    color: #94a3b8;
+    font-size: 0.92rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .release-card__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  /* CTA Buttons */
+  .btn-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #0f172a;
+    background: linear-gradient(135deg, var(--amber-glow) 0%, var(--amber-sun) 100%);
+    overflow: hidden;
+    transition: transform 0.25s var(--ease-elastic), box-shadow 0.25s ease;
+    box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.4), 0 0 25px rgba(251, 191, 36, 0.3);
+  }
+
+  .btn-cta:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.7), 0 0 40px rgba(251, 191, 36, 0.45);
+  }
+
+  .btn-cta--secondary {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, var(--cobalt) 100%);
+    color: #f8fafc;
+    box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.3), 0 0 20px rgba(37, 99, 235, 0.25);
+  }
+
+  .btn-cta--secondary:hover {
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.6), 0 0 35px rgba(37, 99, 235, 0.35);
+  }
+
+  /* Footer */
+  .site-footer {
+    text-align: center;
+    padding: 2.5rem 1rem 3rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    border-top: 1px solid var(--glass-border);
+  }
+
+  .site-footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .site-footer a:hover {
+    color: var(--amber-glow);
+    text-decoration: underline;
+  }
+</style>
+
+
+<header class="site-header">
+  <a class="site-header__brand" href="index.html">
+    <span>★ Festival Frevo Sertão</span>
+  </a>
+  <nav class="site-header__nav">
+    <a href="index.html">← Voltar para Início</a>
+  </nav>
+</header>
+
+<div class="banner-strip" role="region">
+  <div class="banner-strip__inner">
+    Bastidores & Talentos do Festival • Orquestra Frevo Sertão
+  </div>
+</div>
+
+<main class="site-main">
+  <header class="releases-header">
+    <span class="releases-header__eyebrow">Documentação Artística</span>
+    <h1 class="releases-header__title">Releases dos Músicos</h1>
+    <p class="releases-header__lead">
+      Conheça os artistas e os naipes que dão alma, ritmo e energia ao Festival Frevo Sertão. 
+      Explore os materiais em PDF abaixo para ver quem está por trás de cada acorde.
+    </p>
+  </header>
+
+  <div class="releases-grid">
+    <!-- 2 - Base Ritmica -->
+    <article class="glass-panel release-card">
+      <div class="release-card__badge">01</div>
+      <div class="release-card__content">
+        <span class="release-card__category">Ritmo & Pulsação</span>
+        <h2 class="release-card__title">Base Rítmica do Festival</h2>
+        <p class="release-card__desc">
+          A fundação rítmica que sustenta o passo e a cadência do frevo com toda a força da percussão e bateria.
+        </p>
+      </div>
+      <div class="release-card__actions">
+        <a class="btn-cta" href="2 - Base Rítmica do Festival.pdf" target="_blank" rel="noopener noreferrer">
+          <span>Visualizar </span>
+        </a>
+        <a class="btn-cta btn-cta--secondary" href="2 - Base Rítmica do Festival.pdf" download>
+          <span>Baixar</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- 3 - Palhestas -->
+    <article class="glass-panel release-card">
+      <div class="release-card__badge">02</div>
+      <div class="release-card__content">
+        <span class="release-card__category">Madeiras & Sopros</span>
+        <h2 class="release-card__title">Palhetas do Festival</h2>
+        <p class="release-card__desc">
+          O brilho agudo e cortante das palhetas trazendo o lirismo e a vivacidade característicos do gênero.
+        </p>
+      </div>
+      <div class="release-card__actions">
+        <a class="btn-cta" href="3 - Palhestas Festival.pdf" target="_blank" rel="noopener noreferrer">
+          <span>Visualizar </span>
+        </a>
+        <a class="btn-cta btn-cta--secondary" href="3 - Palhestas Festival.pdf" download>
+          <span>Baixar</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- 4 - Metais -->
+    <article class="glass-panel release-card">
+      <div class="release-card__badge">03</div>
+      <div class="release-card__content">
+        <span class="release-card__category">Sopros Pesados</span>
+        <h2 class="release-card__title">Metais do Festival</h2>
+        <p class="release-card__desc">
+          Trompetes, trombones e tubas que comandam a explosão sonora e o contraponto harmônico do frevo.
+        </p>
+      </div>
+      <div class="release-card__actions">
+        <a class="btn-cta" href="4 - Metais do Festival.pdf" target="_blank" rel="noopener noreferrer">
+          <span>Visualizar </span>
+        </a>
+        <a class="btn-cta btn-cta--secondary" href="4 - Metais do Festival.pdf" download>
+          <span>Baixar</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- 5 - Pau e Corda -->
+    <article class="glass-panel release-card">
+      <div class="release-card__badge">04</div>
+      <div class="release-card__content">
+        <span class="release-card__category">Harmonia & Raiz</span>
+        <h2 class="release-card__title">Pau e Corda</h2>
+        <p class="release-card__desc">
+          Violões, cavaquinhos e bandolins que estruturam a harmonia e o balanço tradicional nordestino.
+        </p>
+      </div>
+      <div class="release-card__actions">
+        <a class="btn-cta" href="5 - Pau e Corda.pdf" target="_blank" rel="noopener noreferrer">
+          <span>Visualizar </span>
+        </a>
+        <a class="btn-cta btn-cta--secondary" href="5 - Pau e Corda.pdf" download>
+          <span>Baixar</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- 6 - Back vocal -->
+    <article class="glass-panel release-card" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto; width: 100%;">
+      <div class="release-card__badge">05</div>
+      <div class="release-card__content">
+        <span class="release-card__category">Vozes & Coros</span>
+        <h2 class="release-card__title">Back Vocal Festival</h2>
+        <p class="release-card__desc">
+          As vozes que complementam as canções e elevam a energia coletiva nas apresentações do festival.
+        </p>
+      </div>
+      <div class="release-card__actions">
+        <a class="btn-cta" href="6- Back vocal Festival.pdf" target="_blank" rel="noopener noreferrer">
+          <span>Visualizar </span>
+        </a>
+        <a class="btn-cta btn-cta--secondary" href="6- Back vocal Festival.pdf" download>
+          <span>Baixar</span>
+        </a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>Festival Frevo Sertão — Todos os direitos reservados.</p>
+  <p style="margin-top: 0.5rem;"><a href="index.html">Retornar à página principal</a></p>
+</footer>
+
+<script>
+  // Pequeno script de boas-vindas / log para conferência
+  console.log("Página de Releases dos Músicos carregada com sucesso.");
+</script>

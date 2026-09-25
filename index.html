@@ -6,14 +6,17 @@
     <meta name="description" content="" />
     <link rel="canonical" href="#" />
     <title></title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Rye&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body>
     <div class="umbrella-transition" id="umbrellaTransition" aria-hidden="true">
       <div class="umbrella-transition__panel umbrella-transition__panel--left"></div>
@@ -39,9 +42,22 @@
           decoding="async"
         />
       </a>
-      <nav class="site-header__nav" data-slot="site-nav"></nav>
+
+      <nav class="site-header__nav" data-slot="site-nav">
+        <a
+          class="site-header__nav-link"
+          href="releasesmusicos.html"
+        >
+          Orquestra Frevo Sertão
+        </a>
+      </nav>
+
       <div class="site-header__media">
-        <div class="site-header__social" role="navigation" aria-label="Redes sociais">
+        <div
+          class="site-header__social"
+          role="navigation"
+          aria-label="Redes sociais"
+        >
           <a
             class="site-header__social-btn site-header__social-btn--instagram"
             href="#"
@@ -50,7 +66,12 @@
             data-slot="header-instagram"
             hidden
           >
-            <svg class="site-header__social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <svg
+              class="site-header__social-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
               <path
                 fill="currentColor"
                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
@@ -58,6 +79,7 @@
             </svg>
           </a>
         </div>
+
         <div class="site-header__player" data-slot="header-spotify-embed">
           <iframe
             data-testid="embed-iframe"
@@ -77,17 +99,28 @@
 
     <div class="banner-strip" id="bannerStrip" role="region">
       <div class="banner-strip__pattern" aria-hidden="true"></div>
+
       <div class="banner-strip__inner">
         <span class="banner-strip__edition" data-slot="edition-badge"></span>
         <p class="banner-strip__msg" id="bannerMessage" aria-live="polite"></p>
-        <span class="banner-strip__domain" aria-hidden="true" data-slot="banner-domain"></span>
+        <span
+          class="banner-strip__domain"
+          aria-hidden="true"
+          data-slot="banner-domain"
+        ></span>
       </div>
     </div>
 
     <main class="site-main">
+
       <section class="hero" id="hero">
         <div class="hero__parallax" data-parallax="slow">
-          <svg class="decor decor--umbrella decor--umbrella-1" viewBox="0 0 200 220" aria-hidden="true">
+
+          <svg
+            class="decor decor--umbrella decor--umbrella-1"
+            viewBox="0 0 200 220"
+            aria-hidden="true"
+          >
             <defs>
               <linearGradient id="umb1" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#1e3a8a" />
@@ -95,47 +128,125 @@
                 <stop offset="100%" stop-color="#f59e0b" />
               </linearGradient>
             </defs>
-            <path fill="url(#umb1)" d="M100 20 C40 20 10 80 10 120 C10 160 50 190 100 200 C150 190 190 160 190 120 C190 80 160 20 100 20 Z" opacity="0.92" />
-            <line x1="100" y1="200" x2="100" y2="210" stroke="#c2410c" stroke-width="6" stroke-linecap="round" />
+
+            <path
+              fill="url(#umb1)"
+              d="M100 20 C40 20 10 80 10 120 C10 160 50 190 100 200 C150 190 190 160 190 120 C190 80 160 20 100 20 Z"
+              opacity="0.92"
+            />
+
+            <line
+              x1="100"
+              y1="200"
+              x2="100"
+              y2="210"
+              stroke="#c2410c"
+              stroke-width="6"
+              stroke-linecap="round"
+            />
           </svg>
-          <svg class="decor decor--cactus decor--cactus-1" viewBox="0 0 120 200" aria-hidden="true">
-            <path fill="#166534" d="M60 200 L60 80 Q60 40 40 20 Q30 10 50 15 Q55 50 55 90 L55 200 Z" />
-            <path fill="#15803d" d="M60 120 Q90 100 95 70 Q98 50 85 45 Q75 55 70 85 L70 200 L60 200 Z" />
-            <ellipse cx="45" cy="18" rx="8" ry="6" fill="#22c55e" />
+
+          <svg
+            class="decor decor--cactus decor--cactus-1"
+            viewBox="0 0 120 200"
+            aria-hidden="true"
+          >
+            <path
+              fill="#166534"
+              d="M60 200 L60 80 Q60 40 40 20 Q30 10 50 15 Q55 50 55 90 L55 200 Z"
+            />
+
+            <path
+              fill="#15803d"
+              d="M60 120 Q90 100 95 70 Q98 50 85 45 Q75 55 70 85 L70 200 L60 200 Z"
+            />
+
+            <ellipse
+              cx="45"
+              cy="18"
+              rx="8"
+              ry="6"
+              fill="#22c55e"
+            />
           </svg>
         </div>
 
         <div class="hero__inner glass-panel glass-panel--hero">
           <p class="hero__eyebrow" data-slot="hero-eyebrow"></p>
+
           <h1 class="hero__title" data-slot="hero-title"></h1>
+
           <p class="hero__lead" data-slot="hero-lead"></p>
+
           <div class="hero__actions">
             <a class="btn-cta" href="#" data-slot="hero-cta">
               <span class="btn-cta__glow"></span>
-              <span class="btn-cta__label" data-slot="hero-cta-label"></span>
+              <span
+                class="btn-cta__label"
+                data-slot="hero-cta-label"
+              ></span>
             </a>
-            <a class="btn-cta btn-cta--secondary btn-inscricao btn-inscricao--documento" href="#" data-slot="hero-inscricao-link">
+
+            <a
+              class="btn-cta btn-cta--secondary btn-inscricao btn-inscricao--documento"
+              href="#"
+              data-slot="hero-inscricao-link"
+            >
               <span class="btn-cta__glow"></span>
-              <span class="btn-cta__label" data-slot="hero-inscricao-label"></span>
+              <span
+                class="btn-cta__label"
+                data-slot="hero-inscricao-label"
+              ></span>
             </a>
           </div>
         </div>
 
-        <div class="hero__parallax hero__parallax--front" data-parallax="fast">
-          <svg class="decor decor--umbrella decor--umbrella-2" viewBox="0 0 200 220" aria-hidden="true">
+        <div
+          class="hero__parallax hero__parallax--front"
+          data-parallax="fast"
+        >
+          <svg
+            class="decor decor--umbrella decor--umbrella-2"
+            viewBox="0 0 200 220"
+            aria-hidden="true"
+          >
             <defs>
-              <linearGradient id="umb2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <linearGradient
+                id="umb2"
+                x1="100%"
+                y1="0%"
+                x2="0%"
+                y2="100%"
+              >
                 <stop offset="0%" stop-color="#b45309" />
                 <stop offset="100%" stop-color="#1e40af" />
               </linearGradient>
             </defs>
-            <path fill="url(#umb2)" d="M100 30 C45 30 15 85 15 125 C15 165 55 195 100 205 C145 195 185 165 185 125 C185 85 155 30 100 30 Z" opacity="0.88" />
-            <line x1="100" y1="205" x2="100" y2="215" stroke="#92400e" stroke-width="5" stroke-linecap="round" />
+
+            <path
+              fill="url(#umb2)"
+              d="M100 30 C45 30 15 85 15 125 C15 165 55 195 100 205 C145 195 185 165 185 125 C185 85 155 30 100 30 Z"
+              opacity="0.88"
+            />
+
+            <line
+              x1="100"
+              y1="205"
+              x2="100"
+              y2="215"
+              stroke="#92400e"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
           </svg>
         </div>
       </section>
 
-      <section class="section home-banner" id="home-banner" aria-label="Imagem de destaque">
+      <section
+        class="section home-banner"
+        id="home-banner"
+        aria-label="Imagem de destaque"
+      >
         <div class="section__container">
           <div class="home-banner__panel glass-panel" data-reveal>
             <img
@@ -149,133 +260,415 @@
         </div>
       </section>
 
-      <section class="section noticias noticias--destaque" id="noticias-frevo" aria-labelledby="noticias-heading">
+      <section
+        class="section noticias noticias--destaque"
+        id="noticias-frevo"
+        aria-labelledby="noticias-heading"
+      >
         <div class="section__container">
           <div class="noticias__shell glass-panel" data-reveal>
+
             <header class="noticias__header">
               <span class="noticias__ribbon" aria-hidden="true">★</span>
+
               <div class="noticias__header-text">
-                <h2 id="noticias-heading" class="noticias__title" data-slot="noticias-title"></h2>
-                <p class="noticias__intro" data-slot="noticias-intro" hidden></p>
+                <h2
+                  id="noticias-heading"
+                  class="noticias__title"
+                  data-slot="noticias-title"
+                ></h2>
+
+                <p
+                  class="noticias__intro"
+                  data-slot="noticias-intro"
+                  hidden
+                ></p>
               </div>
             </header>
-            <ul class="noticias__list" data-slot="noticias-list"></ul>
+
+            <ul
+              class="noticias__list"
+              data-slot="noticias-list"
+            ></ul>
+
           </div>
         </div>
       </section>
 
       <section class="section festival" id="festival">
         <div class="section__container">
-          <h2 class="section__title" data-reveal data-slot="festival-title"></h2>
-          <div class="glass-panel festival__panel" data-reveal>
+
+          <h2
+            class="section__title"
+            data-reveal
+            data-slot="festival-title"
+          ></h2>
+
+          <div
+            class="glass-panel festival__panel"
+            data-reveal
+          >
             <div data-slot="festival-body"></div>
           </div>
+
         </div>
       </section>
 
       <section class="section cocar" id="cocar">
         <div class="section__container">
-          <h2 class="section__title" data-reveal data-slot="cocar-title"></h2>
-          <div class="glass-panel cocar__panel" data-reveal>
+
+          <h2
+            class="section__title"
+            data-reveal
+            data-slot="cocar-title"
+          ></h2>
+
+          <div
+            class="glass-panel cocar__panel"
+            data-reveal
+          >
             <div data-slot="cocar-body"></div>
           </div>
+
         </div>
       </section>
 
-      <section class="section homenageados" id="homenageados" aria-labelledby="homenageados-heading">
+      <section
+        class="section homenageados"
+        id="homenageados"
+        aria-labelledby="homenageados-heading"
+      >
         <div class="section__container">
-          <h2 class="section__title" id="homenageados-heading" data-slot="homenageados-title"></h2>
-          <p class="section__subtitle" data-slot="homenageados-intro"></p>
-          <div class="homenageados__grid" data-slot="homenageados-grid"></div>
+
+          <h2
+            class="section__title"
+            id="homenageados-heading"
+            data-slot="homenageados-title"
+          ></h2>
+
+          <p
+            class="section__subtitle"
+            data-slot="homenageados-intro"
+          ></p>
+
+          <div
+            class="homenageados__grid"
+            data-slot="homenageados-grid"
+          ></div>
+
         </div>
       </section>
+
+      <!-- =========================================================
+           NOVA ABA — RELEASES MÚSICOS
+           ========================================================= -->
+      <section
+        class="section releases-musicos"
+        id="releases-musicos"
+        aria-labelledby="releases-musicos-heading"
+      >
+        <div class="section__container">
+
+          <a
+            class="releases-musicos__panel glass-panel"
+            href="releasesmusicos.html"
+            aria-label="Abrir página de da Orquestra Frevo Sertão"
+          >
+            <div class="releases-musicos__content">
+
+              <span class="releases-musicos__eyebrow">
+                BASTIDORES
+              </span>
+
+              <h2
+                class="releases-musicos__title"
+                id="releases-musicos-heading"
+              >
+               Orquestra Frevo Sertão
+              </h2>
+
+              <p class="releases-musicos__text">
+                Conheça os lançamentos, artistas e os
+               músicos participantes do Festival Frevo Sertão.
+              </p>
+
+              <span class="btn-cta releases-musicos__button">
+                <span class="btn-cta__glow"></span>
+
+                <span class="btn-cta__label">
+                  Acessar
+                </span>
+              </span>
+
+            </div>
+          </a>
+
+        </div>
+      </section>
+      <!-- ========================================================= -->
 
       <section class="section documentos" id="documentos">
         <div class="section__container documentos__grid">
-          <article class="glass-panel documentos__card" data-reveal>
-            <h2 class="documentos__heading" data-slot="documentos-heading"></h2>
-            <p class="documentos__intro" data-slot="regulamento-intro"></p>
-            <a class="btn-cta btn-cta--doc" data-slot="regulamento-link" href="#">
+
+          <article
+            class="glass-panel documentos__card"
+            data-reveal
+          >
+            <h2
+              class="documentos__heading"
+              data-slot="documentos-heading"
+            ></h2>
+
+            <p
+              class="documentos__intro"
+              data-slot="regulamento-intro"
+            ></p>
+
+            <a
+              class="btn-cta btn-cta--doc"
+              data-slot="regulamento-link"
+              href="#"
+            >
               <span class="btn-cta__glow"></span>
-              <span class="btn-cta__label" data-slot="regulamento-link-label"></span>
+
+              <span
+                class="btn-cta__label"
+                data-slot="regulamento-link-label"
+              ></span>
             </a>
+
             <div class="documentos__actions">
-              <a class="btn-cta btn-cta--doc" data-slot="analise-link" href="#">
+
+              <a
+                class="btn-cta btn-cta--doc"
+                data-slot="analise-link"
+                href="#"
+              >
                 <span class="btn-cta__glow"></span>
-                <span class="btn-cta__label" data-slot="analise-link-label"></span>
+
+                <span
+                  class="btn-cta__label"
+                  data-slot="analise-link-label"
+                ></span>
               </a>
-              <a class="btn-cta btn-cta--doc" data-slot="recurso-link" href="#">
+
+              <a
+                class="btn-cta btn-cta--doc"
+                data-slot="recurso-link"
+                href="#"
+              >
                 <span class="btn-cta__glow"></span>
-                <span class="btn-cta__label" data-slot="recurso-link-label"></span>
+
+                <span
+                  class="btn-cta__label"
+                  data-slot="recurso-link-label"
+                ></span>
               </a>
-              <a class="btn-cta btn-cta--doc" data-slot="comunicado-link" href="#">
+
+              <a
+                class="btn-cta btn-cta--doc"
+                data-slot="comunicado-link"
+                href="#"
+              >
                 <span class="btn-cta__glow"></span>
-                <span class="btn-cta__label" data-slot="comunicado-link-label"></span>
+
+                <span
+                  class="btn-cta__label"
+                  data-slot="comunicado-link-label"
+                ></span>
               </a>
+
             </div>
           </article>
+
         </div>
       </section>
 
       <section class="section inscricoes" id="inscricoes">
         <div class="section__container">
-          <article class="glass-panel inscricoes__panel" data-reveal>
-            <h2 class="section__title" data-slot="inscricoes-title"></h2>
-            <p class="inscricoes__subtitle flow-text" data-slot="inscricoes-subtitle" hidden></p>
-            <button type="button" class="btn-cta inscricoes__cta btn-inscricao">
+
+          <article
+            class="glass-panel inscricoes__panel"
+            data-reveal
+          >
+            <h2
+              class="section__title"
+              data-slot="inscricoes-title"
+            ></h2>
+
+            <p
+              class="inscricoes__subtitle flow-text"
+              data-slot="inscricoes-subtitle"
+              hidden
+            ></p>
+
+            <button
+              type="button"
+              class="btn-cta inscricoes__cta btn-inscricao"
+            >
               <span class="btn-cta__glow"></span>
-              <span class="btn-cta__label" data-slot="inscricoes-cta-label"></span>
+
+              <span
+                class="btn-cta__label"
+                data-slot="inscricoes-cta-label"
+              ></span>
             </button>
+
           </article>
+
         </div>
       </section>
 
-      <dialog class="inscricoes-dialog" id="inscricoesDialog" aria-labelledby="inscricoesPendingMsg">
+      <dialog
+        class="inscricoes-dialog"
+        id="inscricoesDialog"
+        aria-labelledby="inscricoesPendingMsg"
+      >
         <div class="inscricoes-dialog__panel glass-panel">
-          <button type="button" class="inscricoes-dialog__close" aria-label="Fechar">&times;</button>
-          <p class="inscricoes-dialog__msg" id="inscricoesPendingMsg" data-slot="inscricoes-pending-message"></p>
+
+          <button
+            type="button"
+            class="inscricoes-dialog__close"
+            aria-label="Fechar"
+          >
+            &times;
+          </button>
+
+          <p
+            class="inscricoes-dialog__msg"
+            id="inscricoesPendingMsg"
+            data-slot="inscricoes-pending-message"
+          ></p>
+
         </div>
       </dialog>
 
       <div id="ultima-edicao-2024" class="ultima-edicao">
-      <section class="section midia" id="midia-2024">
-        <div class="section__container">
-          <h2 class="section__title" data-reveal data-slot="memoria-title"></h2>
-          <p class="section__subtitle" data-reveal data-slot="memoria-subtitle"></p>
 
-          <div class="midia__video-feature glass-panel" data-reveal>
-            <h3 class="midia__label" data-slot="video-title"></h3>
-            <p class="midia__text" data-slot="video-intro"></p>
-            <div class="midia__video-wrap midia__video-wrap--medium" data-slot="youtube-embed"></div>
-            <p class="midia__video-footer">
-              <a class="midia__video-link" data-slot="video-link" href="#" target="_blank" rel="noopener noreferrer"></a>
-            </p>
-          </div>
+        <section class="section midia" id="midia-2024">
+          <div class="section__container">
 
-          <div class="midia__spotify-block glass-panel" data-reveal>
-            <h3 class="midia__label" data-slot="midia-spotify-title"></h3>
-            <div class="midia__embed" data-slot="spotify-embed">
-              <p class="midia__fallback" data-slot="spotify-placeholder"></p>
+            <h2
+              class="section__title"
+              data-reveal
+              data-slot="memoria-title"
+            ></h2>
+
+            <p
+              class="section__subtitle"
+              data-reveal
+              data-slot="memoria-subtitle"
+            ></p>
+
+            <div
+              class="midia__video-feature glass-panel"
+              data-reveal
+            >
+              <h3
+                class="midia__label"
+                data-slot="video-title"
+              ></h3>
+
+              <p
+                class="midia__text"
+                data-slot="video-intro"
+              ></p>
+
+              <div
+                class="midia__video-wrap midia__video-wrap--medium"
+                data-slot="youtube-embed"
+              ></div>
+
+              <p class="midia__video-footer">
+                <a
+                  class="midia__video-link"
+                  data-slot="video-link"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                ></a>
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="section vencedoras vencedoras--hall" id="vencedoras">
-        <div class="section__container">
-          <h2 class="section__title" data-reveal data-slot="vencedoras-title"></h2>
-          <p class="section__subtitle" data-reveal data-slot="vencedoras-intro"></p>
-          <div class="vencedoras__grid" data-slot="vencedoras-grid"></div>
-        </div>
-      </section>
+            <div
+              class="midia__spotify-block glass-panel"
+              data-reveal
+            >
+              <h3
+                class="midia__label"
+                data-slot="midia-spotify-title"
+              ></h3>
+
+              <div
+                class="midia__embed"
+                data-slot="spotify-embed"
+              >
+                <p
+                  class="midia__fallback"
+                  data-slot="spotify-placeholder"
+                ></p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section
+          class="section vencedoras vencedoras--hall"
+          id="vencedoras"
+        >
+          <div class="section__container">
+
+            <h2
+              class="section__title"
+              data-reveal
+              data-slot="vencedoras-title"
+            ></h2>
+
+            <p
+              class="section__subtitle"
+              data-reveal
+              data-slot="vencedoras-intro"
+            ></p>
+
+            <div
+              class="vencedoras__grid"
+              data-slot="vencedoras-grid"
+            ></div>
+
+          </div>
+        </section>
+
       </div>
 
-      <section class="section patrocinadores" id="patrocinadores">
+      <section
+        class="section patrocinadores"
+        id="patrocinadores"
+      >
         <div class="section__container">
-          <h2 class="section__title" data-reveal data-slot="patrocinadores-title"></h2>
-          <p class="section__subtitle" data-reveal data-slot="patrocinadores-intro"></p>
-          <div class="patrocinadores__marquee glass-panel" data-reveal data-slot="patrocinadores-marquee">
-            <div class="patrocinadores__track" data-slot="patrocinadores-track">
+
+          <h2
+            class="section__title"
+            data-reveal
+            data-slot="patrocinadores-title"
+          ></h2>
+
+          <p
+            class="section__subtitle"
+            data-reveal
+            data-slot="patrocinadores-intro"
+          ></p>
+
+          <div
+            class="patrocinadores__marquee glass-panel"
+            data-reveal
+            data-slot="patrocinadores-marquee"
+          >
+            <div
+              class="patrocinadores__track"
+              data-slot="patrocinadores-track"
+            >
+
               <div class="patrocinadores__seq">
                 <img
                   class="patrocinadores__img"
@@ -287,7 +680,11 @@
                   draggable="false"
                 />
               </div>
-              <div class="patrocinadores__seq" aria-hidden="true">
+
+              <div
+                class="patrocinadores__seq"
+                aria-hidden="true"
+              >
                 <img
                   class="patrocinadores__img"
                   src=""
@@ -298,20 +695,41 @@
                   draggable="false"
                 />
               </div>
+
             </div>
           </div>
+
         </div>
       </section>
+
     </main>
 
     <footer class="site-footer">
+
       <p class="site-footer__main">
-        <span data-slot="footer-before-year"></span><span id="footerYear"></span><span data-slot="footer-after-year"></span>
-        <a class="site-footer__link" data-slot="footer-site-url" href="#"></a>
+        <span data-slot="footer-before-year"></span>
+        <span id="footerYear"></span>
+        <span data-slot="footer-after-year"></span>
+
+        <a
+          class="site-footer__link"
+          data-slot="footer-site-url"
+          href="#"
+        ></a>
       </p>
-      <p class="site-footer__dev" data-slot="footer-developer-wrap" hidden>
+
+      <p
+        class="site-footer__dev"
+        data-slot="footer-developer-wrap"
+        hidden
+      >
         <span class="site-footer__dev-inner">
-          <span class="site-footer__dev-prefix" data-slot="footer-developer-prefix"></span>
+
+          <span
+            class="site-footer__dev-prefix"
+            data-slot="footer-developer-prefix"
+          ></span>
+
           <a
             class="site-footer__dev-link"
             data-slot="footer-developer-link"
@@ -319,12 +737,26 @@
             target="_blank"
             rel="noopener noreferrer"
           ></a>
+
         </span>
       </p>
+
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
-    <script type="module" src="js/main.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="module"
+      src="js/main.js"
+    ></script>
+
   </body>
 </html>
